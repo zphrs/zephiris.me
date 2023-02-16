@@ -14,7 +14,7 @@
 </svelte:head>
 
 <p>
-	My name is <Audio inline src="audio/zephiris.wav"><Zephiris /></Audio> and my preferred pronouns are
+	My preferred name is <Audio inline src="audio/zephiris.wav"><Zephiris /></Audio> and my preferred pronouns are
 	<span class="andro">they/them</span>. I am a full stack programmer currently studying @ UCSC. My
 	former name, a name which I loved, is <span class="masc gilbert">Zephyr</span>. That said, I am
 	changing it because <span class="masc gilbert">Zephyr</span> has a bit of a
