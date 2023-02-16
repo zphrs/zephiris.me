@@ -45,13 +45,13 @@
 	}
 	@keyframes fadein {
 		0% {
-			border-color: transparent;
+			border-bottom-color: transparent;
 		}
 		100% {
-			border-color: var(--purple-500);
+			border-bottom-color: var(--purple-500);
 		}
 	}
 	div.hide {
-		border-color: transparent !important;
+		border-bottom-color: transparent !important;
 	}
 </style>
