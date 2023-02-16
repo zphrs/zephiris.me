@@ -1,0 +1,69 @@
+attribute = "water"
+type = "violet"
+constant = "spring"
+"constant.builtin.boolean" = "sky"
+string = "gold"
+"string.regexp" = "grapefruit"
+comment = "forest"
+variable = "water"
+label = "sun"
+keyword = "violet"
+operator = "sun"
+function = "lime"
+tag = "lime"
+namespace = "sun"
+
+"markup.heading" = "sun"
+"markup.bold" = {fg = "sun", modifiers = ["bold"]}
+"markup.italic" = {fg = "sun", modifiers = ["italic"]}
+"markup.strikethrough" = {fg = "sun", modifiers = ["strikethrough"]}
+"markup.link.url" = {modifiers = ["underlined"]}
+"markup.link.text" = "gold"
+"markup.raw" = "gold"
+"markup.quote" = "green"
+
+"diff.plus" = {bg = "moss"}
+"diff.minus" = {bg = "#220000"}
+"diff.delta" = {bg = "spring"}
+
+
+"ui.background" = {bg = "plum"}
+"ui.linenr" = {fg = "gray"}
+"ui.linenr.selected" = {fg = "white"}
+"ui.statusline" = {bg = "pine"}
+"ui.statusline.inactive" = {bg = "plum", fg = "violet"}
+"ui.popup" = {bg = "pine"}
+"ui.window" = {fg = "ivy"}
+"ui.help" = { bg = "lime", fg = "plum" }
+
+"ui.text" = {fg = "white"}
+"ui.text.focus" = {fg = "violet"}
+"ui.virtual" = {fg = "gray"}
+
+"ui.selection" = {bg = "ultraviolet"}
+"ui.cursor" = {modifiers = ["reversed"]}
+"ui.cursor.match" = {fg = "plum", bg = "gray"}
+"ui.cursorline.primary" = {bg = "pine"}
+"ui.cursorcolumn.primary" = {bg = "pine"}
+
+"ui.menu" = {bg = "pine", fg = "white"}
+"ui.menu.selected" = {bg = "violet", fg = "pine"}
+"ui.menu.scroll" = {fg = "lime", bg = "pine"}
+
+[palette]
+lime = "#86EC99"
+ivy = "#65D656"
+forest = "#6a9955"
+moss = "#335122"
+pine = "#172a18"
+sun = "#ecd47c"
+gold = "#ffbd7a"
+clay = "#f59778"
+grapefruit = "#d16969"
+sky = "#9cdcfe"
+water = "#86b6ec"
+spring = "#4FC1FF"
+white = "#d4d4d4"
+ultraviolet = "#443388"
+violet = "#aba3f1"
+plum = "#1E1729"

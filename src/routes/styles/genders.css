@@ -1,0 +1,26 @@
+.masc {
+	color: var(--blue-700);
+}
+
+.fem {
+	color: var(--pink-700);
+}
+
+.andro {
+	color: var(--purple-500);
+	position: relative;
+	background: linear-gradient(to right, var(--indigo-700) 25%, var(--lavender-700) 75%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.andro.solid {
+	background-clip: unset;
+	background: unset;
+	-webkit-text-fill-color: unset;
+}
+
+.agender {
+	color: var(--white);
+}

@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+	width: var(--gap-0-5);
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--violet);
+	margin: 0.1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--ultraviolet);
+}
