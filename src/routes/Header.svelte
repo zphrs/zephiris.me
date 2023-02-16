@@ -7,7 +7,8 @@
 	// get root font size
 	let rem = 16;
 	if (browser) {
-		parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('font-size'));
+		parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue('font-size')) ||
+			16;
 	}
 </script>
 
