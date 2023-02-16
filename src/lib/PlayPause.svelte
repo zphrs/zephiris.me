@@ -58,7 +58,7 @@
 <svg
 	fill={playing ? 'inherit' : 'currentColor'}
 	stroke={playing ? 'currentColor' : 'inherit'}
-	stroke-width="10"
+	stroke-width="5"
 	class:play={!playing}
 	version="1.1"
 	xmlns="http://www.w3.org/2000/svg"
