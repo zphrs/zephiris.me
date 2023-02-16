@@ -81,27 +81,3 @@ p {
 .card {
 	border: 2px solid var(--violet);
 }
-
-a.card {
-	border-radius: var(--gap-0-5);
-	color: var(--violet);
-	background: linear-gradient(135deg, transparent 40%, var(--violet) 40%);
-	background-size: 200% 200%;
-	background-position: 0% 0%;
-	transition: background-position 0.5s, color 0.15s step-end, font-size 0.15s step-end;
-	display: block;
-	cursor: pointer;
-	background-blend-mode: difference;
-	text-decoration: none;
-	font-size: 1.5em;
-}
-
-a.card:hover {
-	background-position: 60% 60%;
-	color: var(--plum);
-}
-
-a.card:active {
-	transition: font-size 0s, background-position 0.2s;
-	background-position: 100% 100%;
-}

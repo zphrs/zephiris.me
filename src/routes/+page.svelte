@@ -4,14 +4,15 @@
 </script>
 
 <p>
-	My name is <Zephiris />. I am a full stack programmer currently studying @ UCSC. My old name is
-	<span class="masc gilbert">Zephyr</span>: a name which I quite liked. That said, I wanted a name
-	that had less of a strictly <span class="masc"> masculine connotation</span>. Rather, I wanted a
-	name which mixed masculinity and femininity as I am <span class="andro">nonbinary</span>.
+	My name is <Zephiris /> (pronouns <span class="andro">they/them</span>). I am a full stack
+	programmer currently studying @ UCSC. My former name, a name which I loved, is
+	<span class="masc gilbert">Zephyr</span>. That said, I changed it because I wanted a name that had
+	less of a strictly <span class="masc"> masculine connotation</span> - a name which mixed
+	masculinity and femininity - since I am <span class="andro">nonbinary</span>.
 </p>
 
 <p>
-	In greek mythology the Greek god <span class="masc gilbert">Zephyr</span>, god of the west wind,
+	In greek mythology, the Greek god <span class="masc gilbert">Zephyr</span>, god of the west wind,
 	is married to
 	<span class="fem gilbert">Iris</span>, the Greek goddess of rainbows. I decided to sandwich the
 	two names together to get <Zephiris />.
@@ -40,6 +41,6 @@
 	you can also call me by my full name, <Zephiris />, too.
 </p>
 
-<h2>Explore more of my sites below:</h2>
+<h2>Explore my other sites below:</h2>
 
 <Plugs />

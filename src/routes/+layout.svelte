@@ -15,18 +15,18 @@
 </main>
 
 <footer>
-	<div>
-		I used the font <a
+	<p>
+		The font <a
 			class="gilbert"
 			target="_blank"
 			rel="noreferrer"
 			href="https://www.typewithpride.com/">Gilbert Bold</a
 		>
-		which is licenced under the Creative Commons licence
+		is licenced under the Creative Commons licence
 		<a target="_blank" rel="noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/"
 			>(CC BY-SA 4.0)</a
 		>.
-	</div>
+	</p>
 </footer>
 
 <style>
@@ -37,27 +37,42 @@
 	}
 	nav {
 		position: fixed;
+		top: 0;
+		left: 0;
 		z-index: 1;
 		animation: scrollin 1s 0.5s both;
 	}
 	main {
 		padding: var(--gap-1);
-		padding-top: 30vw;
+		margin-top: calc(30vw + 3rem);
 		min-height: 100%;
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	main > :global(p),
+	main > :global(ul) {
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	footer {
 		font-size: 14px;
 		padding: 0 var(--gap-2);
 		background-color: var(--black);
 		border-top: 2px solid var(--violet);
-		background-color: var(--violet);
-		line-height: unset;
 	}
 
-	footer > div {
+	footer > p {
 		border-left: 2px solid var(--violet);
 		border-right: 2px solid var(--violet);
 		padding: 0 var(--gap-1);
+		margin-top: 0;
+		line-height: 0.6;
 		background-color: var(--black);
+	}
+
+	@media screen and (min-width: 1000px) {
 	}
 </style>
