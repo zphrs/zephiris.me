@@ -14,14 +14,13 @@
 </svelte:head>
 
 <p>
-	My name is <Audio inline src="audio/zephiris.wav"><Zephiris /></Audio>
-	and my preferred pronouns are <span class="andro">they/them</span>. I am a full stack programmer
-	currently studying @ UCSC. My former name, a name which I loved, is
-	<span class="masc gilbert">Zephyr</span>. That said, I am changing it because
-	<span class="masc gilbert">Zephyr</span>
-	has a bit of a <span class="masc"> masculine</span> connotation. I prefer a name which mixes
-	<span class="masc">masculinity</span> and <span class="fem">femininity</span> since I am
-	<span class="andro">nonbinary</span>.
+	My name is <Audio inline src="audio/zephiris.wav"><Zephiris /></Audio> and my preferred pronouns are
+	<span class="andro">they/them</span>. I am a full stack programmer currently studying @ UCSC. My
+	former name, a name which I loved, is <span class="masc gilbert">Zephyr</span>. That said, I am
+	changing it because <span class="masc gilbert">Zephyr</span> has a bit of a
+	<span class="masc"> masculine</span>
+	connotation. Since I am <span class="andro">nonbinary</span> I prefer a name which mixes <span class="masc">masculinity</span> and
+	<span class="fem">femininity</span>.
 </p>
 
 <p>
