@@ -40,7 +40,7 @@
 		top: 0;
 		left: 0;
 		z-index: 1;
-		animation: scrollin 1s 0.5s both;
+		animation: scrollin 0.75s both;
 	}
 	main {
 		padding: var(--gap-1);
@@ -51,8 +51,7 @@
 		margin-right: auto;
 	}
 
-	main > :global(p),
-	main > :global(ul) {
+	main > :global(p) {
 		max-width: 800px;
 		margin-left: auto;
 		margin-right: auto;

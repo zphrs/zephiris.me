@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import Zephiris from '$lib/Zephiris.svelte';
 	import { fly } from 'svelte/transition';
-	let scroll = 0;
+	let scroll = 800;
 	let windowWidth = 800;
 	$: sMultip = Math.max(1 - (3.5 * scroll) / windowWidth);
 	// get root font size
@@ -31,18 +31,27 @@
 		font-family: 'Gilbert', sans-serif;
 		font-weight: bold;
 		background-color: var(--black);
+		transition: font-size 0.2s;
 	}
 	.me {
 		color: var(--white);
 	}
 	div {
 		width: 100vw;
-		transition: border-color 0.2s;
+		transition: border-color 0.2s 0.2s;
+		animation: fadein 0.2s 0.75s both;
 		border-bottom: 2px solid var(--purple-500);
-
 		background-color: var(--black);
 	}
+	@keyframes fadein {
+		0% {
+			border-color: transparent;
+		}
+		100% {
+			border-color: var(--purple-500);
+		}
+	}
 	div.hide {
-		border-color: transparent;
+		border-color: transparent !important;
 	}
 </style>

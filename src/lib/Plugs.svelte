@@ -41,11 +41,10 @@
 	];
 </script>
 
-<div class="flex">
+<div class="grid">
 	{#each plugs as plug}
 		<a class="card" href={plug.disabled ? undefined : plug.href} class:disabled={plug.disabled}>
-			{plug.name}
-			<br />
+			<header>{plug.name}</header>
 			{#if plug.desc}
 				<p>{plug.desc}</p>
 			{/if}
@@ -54,23 +53,17 @@
 </div>
 
 <style>
-	.flex {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	.grid {
 		grid-auto-rows: 10rem;
 		gap: var(--gap-0-5);
-		margin-top: var(--gap-1);
 	}
-
-	.flex > .card {
+	.card {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		font-family: 'Gilbert', sans-serif;
 	}
 	.card > p {
-		font-family: 'Atkinson Hyperlegible', sans-serif;
 		font-size: 1.1rem;
 	}
 
@@ -81,7 +74,6 @@
 		background-size: 200% 200%;
 		background-position: 0% 0%;
 		transition: background-position 0.5s, color 0.15s step-end, font-size 0.15s step-end;
-		display: block;
 		cursor: pointer;
 		background-blend-mode: difference;
 		text-decoration: none;
