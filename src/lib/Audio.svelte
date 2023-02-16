@@ -22,7 +22,7 @@
 </script>
 
 <button
-	style={`--progress: ${audio ? ((currentTime - offset) / (audio.duration - offset)) * 100 : 200}%`}
+	style={`--progress: ${audio ? ((currentTime - offset) / (audio.duration - offset)) * 100 : 0}%`}
 	class:empty={!$$slots.default}
 	class:inline={inline !== undefined && inline !== false}
 	class:playing
