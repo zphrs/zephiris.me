@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import PlayPause from './PlayPause.svelte';
 
 	let playing = false;
