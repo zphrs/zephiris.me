@@ -19,7 +19,9 @@
 	former name, a name which I loved, is <span class="masc gilbert">Zephyr</span>. That said, I am
 	changing it because <span class="masc gilbert">Zephyr</span> has a bit of a
 	<span class="masc"> masculine</span>
-	connotation. Since I am <span class="andro">nonbinary</span> I prefer a name which mixes <span class="masc">masculinity</span> and
+	connotation. Since I am <span class="andro">nonbinary</span> I prefer a name which mixes
+	<span class="masc">masculinity</span>
+	and
 	<span class="fem">femininity</span>.
 </p>
 
@@ -29,11 +31,7 @@
 	<span class="fem gilbert">Iris</span>, the Greek goddess of rainbows. I decided to sandwich the
 	two names together to get <Zephiris />.
 </p>
-<p>
-	The name can also be broken down into three nicknames depending on if you think my vibe at any
-	given moment is more <span class="masc">masculine</span>, <span class="fem">feminine</span>, or
-	<span class="andro">androgynous</span>:
-</p>
+<p>The name can also be broken down into three nicknames:</p>
 <Nicknames />
 <p>
 	All three are equally correct, so use whichever one you think fits me best in the moment. Of
