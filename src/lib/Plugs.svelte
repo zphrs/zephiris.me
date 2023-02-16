@@ -90,10 +90,11 @@
 
 	a.card.disabled::after {
 		content: 'coming soon!';
-		bottom: 15%;
-		right: 0%;
+		bottom: 13%;
+		right: -2%;
 		color: var(--plum);
-		font-size: 1rem;
+		font-size: .95rem;
+		font-family: "Gilbert", sans-serif;
 		transform-origin: center;
 		text-align: center;
 		transform: rotate(-45deg);
