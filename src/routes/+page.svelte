@@ -14,9 +14,12 @@
 </svelte:head>
 
 <p>
-	My preferred name is <Audio inline src="audio/zephiris.wav"><Zephiris /></Audio> and my preferred pronouns are
-	<span class="andro">they/them</span>. I am a full stack programmer currently studying @ UCSC. My
-	former name, a name which I loved, is <span class="masc gilbert">Zephyr</span>. That said, I am
+	My preferred name is <Audio inline src="audio/zephiris.wav"><Zephiris /></Audio> and my preferred pronouns
+	are
+	<span class="andro">they/them</span>. I am a full stack programmer currently studying @ UCSC.
+</p>
+<p>
+	My former name, a name which I loved, is <span class="masc gilbert">Zephyr</span>. That said, I am
 	changing it because <span class="masc gilbert">Zephyr</span> has a bit of a
 	<span class="masc"> masculine</span>
 	connotation. Since I am <span class="andro">nonbinary</span> I prefer a name which mixes

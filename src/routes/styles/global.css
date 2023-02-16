@@ -35,6 +35,7 @@
 	background-color: var(--plum);
 	color: var(--white);
 	line-height: 1.75;
+	font-size: 1.25rem;
 }
 
 html,
