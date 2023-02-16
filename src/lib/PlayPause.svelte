@@ -4,6 +4,7 @@
 	let right: SVGPathElement | null = null;
 	let play: SVGPathElement | null = null;
 	let first = true;
+	let playTimeout = 0;
 	let animate = (el: SVGPathElement, from: string, to: string, reverse: boolean) => {
 		let anim: SVGAnimateElement | null = el.querySelector('animate');
 		if (!anim) {
@@ -40,7 +41,14 @@
 			'M 49.9 30, L 85 50, l 0 0, L 49.9 70, Z',
 			playing
 		);
-		animate(play, 'M 50 50, l 0 0, l 0 0, Z', 'M 15 10, L 85 50, L 15 90, Z', playing);
+		if (!playing) {
+			playTimeout = window.setTimeout(() => {
+				play.setAttribute('d', 'M 15 10, L 85 50, L 15 90, Z');
+			}, 200);
+		} else {
+			play.setAttribute('d', 'M 50 50, l 0 0, l 0 0, Z');
+			window.clearTimeout(playTimeout);
+		}
 	}
 	$: {
 		if (left && right && play) transition(left, right, play, playing);
@@ -62,7 +70,5 @@
 	<path bind:this={right} d="M 49.9 30, L 85 50, l 0 0, L 49.9 70, Z">
 		<animate attributeName="d" dur="0.2s" fill="freeze" begin="indefinite" />
 	</path>
-	<path bind:this={play} d="M 15 10, L 85 50, L 15 90, Z">
-		<animate attributeName="d" dur="0.2s" fill="freeze" begin="indefinite" />
-	</path>
+	<path bind:this={play} d="M 15 10, L 85 50, L 15 90, Z" />
 </svg>
