@@ -39,7 +39,7 @@
 	div {
 		width: 100vw;
 		transition: border-color 0.2s 0.2s;
-		animation: fadein 0.2s 0.75s;
+		animation: fadein 0.2s 0.75s both;
 		border-bottom: 2px solid var(--purple-500);
 		background-color: var(--black);
 	}
@@ -52,6 +52,7 @@
 		}
 	}
 	div.hide {
+		animation: none;
 		border-bottom-color: transparent !important;
 	}
 </style>
