@@ -1,5 +1,5 @@
 <script>
-	import Audio from '$lib/Audio.svelte';
+	import Audio from '$lib/AudioPlayer.svelte';
 	import Plugs from '$lib/Plugs.svelte';
 	import Zephiris from '$lib/Zephiris.svelte';
 	import Nicknames from './Nicknames.svelte';

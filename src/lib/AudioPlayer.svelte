@@ -22,7 +22,9 @@
 </script>
 
 <button
-	style={`--progress: ${audio && audio.duration ? ((currentTime - offset) / (audio.duration - offset)) * 100 : 0}%`}
+	style={`--progress: ${
+		audio && audio.duration ? ((currentTime - offset) / (audio.duration - offset)) * 100 : 0
+	}%`}
 	class:empty={!$$slots.default}
 	class:inline={inline !== undefined && inline !== false}
 	class:playing
@@ -32,6 +34,7 @@
 	<span class="icon">
 		<PlayPause {playing} />
 		<audio
+			preload="auto"
 			bind:this={audio}
 			bind:currentTime
 			on:ended={() => {
