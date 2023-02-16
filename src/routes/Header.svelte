@@ -1,7 +1,6 @@
 <script>
 	import { browser } from '$app/environment';
 	import Zephiris from '$lib/Zephiris.svelte';
-	import { fly } from 'svelte/transition';
 	let scroll = 800;
 	let windowWidth = 800;
 	$: sMultip = Math.max(1 - (3.5 * scroll) / windowWidth);
