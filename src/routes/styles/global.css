@@ -1,7 +1,7 @@
 @font-face {
 	font-family: Gilbert;
 	font-weight: bold;
-	src: url('Gilbert-Bold.otf') format('opentype');
+	src: url('./Gilbert-Bold.otf') format('opentype');
 }
 
 :root {

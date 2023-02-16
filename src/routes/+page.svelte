@@ -3,6 +3,14 @@
 	import Zephiris from '$lib/Zephiris.svelte';
 </script>
 
+<svelte:head>
+	<meta property="og:title" content="Zephiris.Me" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://zephiris.me" />
+	<meta property="og:image" content="https://zephiris.me/og-image.png" />
+	<meta property="og:description" content="Learn about my name!" />
+</svelte:head>
+
 <p>
 	My name is <Zephiris /> (pronouns <span class="andro">they/them</span>). I am a full stack
 	programmer currently studying @ UCSC. My former name, a name which I loved, is
