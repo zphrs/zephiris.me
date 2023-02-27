@@ -71,7 +71,4 @@
 		line-height: 0.6;
 		background-color: var(--black);
 	}
-
-	@media screen and (min-width: 1000px) {
-	}
 </style>
