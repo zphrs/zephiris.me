@@ -25,7 +25,8 @@
 		},
 		{
 			name: 'Boids',
-			href: 'https://zphrs.github.io/jsExperiments/boids'
+			href: 'https://zphrs.github.io/jsExperiments/boids',
+			desc: 'A GPGPU sim with\nWebGL'
 		},
 		{
 			href: 'https://at.zephiris.me',
@@ -80,7 +81,11 @@
 			class="card"
 			style={`--days-left: "${
 				plug.estPublishDate ? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate)) : 0
-			} days"`}
+			} days"; --days-percent: ${
+				(plug.estPublishDate
+					? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate))
+					: 0) / 360
+			}`}
 			href={plug.disabled ? undefined : plug.href}
 			class:disabled={plug.disabled}
 		>
@@ -121,8 +126,10 @@
 		background: linear-gradient(135deg, var(--sea-100) 40%, var(--sea-900) 40%);
 		background-size: 200% 200%;
 		background-position: 0% 0%;
-		transition: background-position 0.5s, color 0.15s step-end, font-size 0.15s step-end;
+		transition: background-position 0.5s, color 0.15s step-end, font-size 0.15s step-end,
+			border-color 0.5s, box-shadow 0.5s;
 		cursor: pointer;
+		box-shadow: 0 0 2px 0 var(--sea-700), 0 0 4px 0 var(--sea-700);
 		background-blend-mode: difference;
 		text-decoration: none;
 		font-size: 1.5em;
@@ -134,10 +141,12 @@
 
 	a.card.disabled {
 		/* filter: grayscale(1); */
-		border-color: var(--gold-700);
+		border-color: var(--gold-700) !important;
+		filter: grayscale(var(--days-percent, 0));
 		background-image: linear-gradient(135deg, var(--gold-100) 40%, var(--gold-500) 40%);
 		background-position: 0 0 !important;
 		color: var(--gray-90) !important;
+		box-shadow: none !important;
 		cursor: default;
 		position: relative;
 	}
@@ -167,9 +176,12 @@
 		position: absolute;
 	}
 
-	a.card:hover {
+	a.card:hover,
+	a.card:focus {
 		background-position: 60% 60%;
 		color: var(--sea-100);
+		border-color: var(--sea-900);
+		box-shadow: 0 0 4px var(--sea-900), 0 0 8px var(--sea-900);
 	}
 
 	a.card:active {

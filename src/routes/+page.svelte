@@ -73,4 +73,7 @@
 			var(--sea-500)
 		);
 	}
+	h2 {
+		filter: drop-shadow(0 0 2px var(--sea-700));
+	}
 </style>
