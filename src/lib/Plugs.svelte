@@ -84,7 +84,7 @@
 			} days"; --days-percent: ${
 				(plug.estPublishDate
 					? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate))
-					: 0) / 360
+					: 0) / 160
 			}`}
 			href={plug.disabled ? undefined : plug.href}
 			class:disabled={plug.disabled}
@@ -142,7 +142,10 @@
 	a.card.disabled {
 		/* filter: grayscale(1); */
 		border-color: var(--gold-700) !important;
-		filter: grayscale(var(--days-percent, 0));
+		filter: blur(calc(var(--days-percent, 0) * 0.2rem)) opacity(calc(1 - var(--days-percent, 0)));
+		transform-origin: calc(100% * var(--days-percent, 0)) 0;
+		z-index: -1;
+		transform: scale(calc(1 - var(--days-percent, 0)));
 		background-image: linear-gradient(135deg, var(--gold-100) 40%, var(--gold-500) 40%);
 		background-position: 0 0 !important;
 		color: var(--gray-90) !important;
