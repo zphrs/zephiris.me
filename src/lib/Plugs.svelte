@@ -7,18 +7,19 @@
 	};
 	const plugs = [
 		{
-			href: 'https://zephyr.contact',
-			name: 'zephyr.contact',
-			desc: 'Contact Card'
-		},
-		{
 			name: 'zephyrj.com',
 			href: 'https://zephyrj.com',
 			desc: 'High School Portfolio'
 		},
 		{
 			name: 'GitHub',
-			href: 'https://github.com/zphyrj'
+			href: 'https://github.com/zphrs'
+		},
+		{
+			href: 'https://at.zephiris.me',
+			name: 'at.zephiris.me',
+			desc: 'Contact Card',
+			disabled: true
 		},
 		{
 			name: 'zephiris.dev',
@@ -28,7 +29,7 @@
 		},
 		{
 			name: 'creative.zephiris.me',
-			href: 'https://blog.zephiris.me',
+			href: 'https://creative.zephiris.me',
 			desc: 'Creative Endeavors',
 			disabled: true
 		},
@@ -36,6 +37,12 @@
 			name: 'animent.dev',
 			href: 'https://animent.dev',
 			desc: 'Web Design Tutorial',
+			disabled: true
+		},
+		{
+			name: 'plexigraph.com',
+			href: 'https://plexigraph.com',
+			desc: 'Future Project',
 			disabled: true
 		}
 	];
@@ -69,8 +76,10 @@
 
 	a.card {
 		border-radius: var(--gap-0-5);
-		color: var(--violet);
-		background: linear-gradient(135deg, transparent 40%, var(--violet) 40%);
+		border-color: var(--sea-700);
+		color: var(--sea-900);
+		background-color: var(--sea-100);
+		background: linear-gradient(135deg, var(--sea-100) 40%, var(--sea-900) 40%);
 		background-size: 200% 200%;
 		background-position: 0% 0%;
 		transition: background-position 0.5s, color 0.15s step-end, font-size 0.15s step-end;
@@ -81,9 +90,11 @@
 	}
 
 	a.card.disabled {
-		filter: grayscale(1);
+		/* filter: grayscale(1); */
+		border-color: var(--gray-90);
+		background-image: linear-gradient(135deg, var(--gray-10) 40%, var(--gray-90) 40%);
 		background-position: 0 0 !important;
-		color: var(--violet) !important;
+		color: var(--gray-90) !important;
 		cursor: default;
 		position: relative;
 	}
@@ -92,9 +103,9 @@
 		content: 'coming soon!';
 		bottom: 13%;
 		right: -2%;
-		color: var(--plum);
-		font-size: .95rem;
-		font-family: "Gilbert", sans-serif;
+		color: var(--gray-10);
+		font-size: 0.95rem;
+		font-family: 'Gilbert', sans-serif;
 		transform-origin: center;
 		text-align: center;
 		transform: rotate(-45deg);
@@ -106,7 +117,7 @@
 
 	a.card:hover {
 		background-position: 60% 60%;
-		color: var(--plum);
+		color: var(--sea-100);
 	}
 
 	a.card:active {

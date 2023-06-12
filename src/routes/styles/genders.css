@@ -7,7 +7,7 @@
 }
 
 .andro {
-	color: var(--purple-500);
+	color: var(--violet-700);
 	position: relative;
 	background: linear-gradient(to right, var(--indigo-700) 25%, var(--lavender-700) 75%);
 	-webkit-background-clip: text;

@@ -27,10 +27,9 @@
 		font-size: max(calc(18vw * var(--s-multip)), 2rem);
 		text-align: center;
 		text-decoration: none;
-		color: var(--purple-500);
+		color: var(--violet-700);
 		font-family: 'Gilbert', sans-serif;
 		font-weight: bold;
-		background-color: var(--black);
 		transition: font-size 0.2s;
 	}
 	.me {
@@ -39,16 +38,16 @@
 	div {
 		width: 100vw;
 		transition: border-color 0.2s 0s;
-		animation: fadein 0.2s 0.75s both;
-		border-bottom: 2px solid var(--purple-500);
-		background-color: var(--black);
+		animation: fadein 0.2s 0s both;
+		border-bottom: 2px solid var(--violet-700);
+		background-color: var(--violet-100);
 	}
 	@keyframes fadein {
 		0% {
 			border-bottom-color: transparent;
 		}
 		100% {
-			border-bottom-color: var(--purple-500);
+			border-bottom-color: var(--violet-700);
 		}
 	}
 	div.hide {

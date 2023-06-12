@@ -59,16 +59,14 @@
 	footer {
 		font-size: 14px;
 		padding: 0 var(--gap-2);
-		background-color: var(--black);
-		border-top: 2px solid var(--violet);
+		border-top: 2px solid var(--violet-700);
 	}
 
 	footer > p {
-		border-left: 2px solid var(--violet);
-		border-right: 2px solid var(--violet);
+		border-left: 2px solid var(--violet-700);
+		border-right: 2px solid var(--violet-700);
 		padding: 0 var(--gap-1);
 		margin-top: 0;
 		line-height: 0.6;
-		background-color: var(--black);
 	}
 </style>

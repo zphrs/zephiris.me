@@ -1,45 +1,94 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import PlayPause from './PlayPause.svelte';
 
 	let playing = false;
+	let hasMeta = false;
+	let buffering = false;
 	export let src: string;
-	export let offset = 0;
+	export let title: string;
 	export let inline: undefined | null | boolean = false;
+
+	$: audio && whenAudioLoaded();
+
+	function whenAudioLoaded() {
+		switch (audio.readyState) {
+			case 4:
+				buffering = false;
+			case 3:
+			case 2:
+				buffering = true;
+			case 1:
+				hasMeta = true;
+			case 0:
+		}
+	}
 
 	function playAudio(play: boolean, audio: HTMLAudioElement) {
 		// restart audio
 		if (play) {
+			buffering = true;
 			audio.play();
 		} else {
 			audio.pause();
+			currentTime = 0;
 		}
-		currentTime = offset;
 	}
+	async function loadMedia() {
+		if (audio.readyState < 4 && !buffering) {
+			console.log('loading ' + title);
+			console.log(audio.readyState);
+			buffering = true;
+			await audio.play();
+			audio.pause();
+		}
+	}
+	function onStall() {
+		buffering = true;
+	}
+	function onResume() {
+		buffering = false;
+	}
+	$: progress = audio && audio.duration ? (currentTime / audio.duration) * 100 : 0;
+	$: progress && onResume();
 	let audio: HTMLAudioElement;
-	export let currentTime = offset;
+	export let currentTime = 0;
 	$: audio && playAudio(playing, audio);
 </script>
 
-<button
-	style={`--progress: ${
-		audio && audio.duration ? ((currentTime - offset) / (audio.duration - offset)) * 100 : 0
-	}%`}
+<span aria-hidden="true" class="hide"><slot /></span><button
+	style={`--progress: ${progress}%`}
 	class:empty={!$$slots.default}
 	class:inline={inline !== undefined && inline !== false}
 	class:playing
-	on:click={() => (playing = !playing)}
+	class:buffering
+	class:hasMeta
+	disabled={buffering && playing && !hasMeta}
+	on:click={() => {
+		playing = !playing;
+		buffering = true;
+	}}
+	on:pointerover={loadMedia}
 	class="card"
 >
 	<span class="icon">
 		<PlayPause {playing} />
 		<audio
-			preload="auto"
 			bind:this={audio}
 			bind:currentTime
+			preload="metadata"
+			{title}
 			on:ended={() => {
 				playing = false;
 				currentTime = 0;
 			}}
+			on:loadedmetadata={() => {
+				console.log('loaded metadata');
+				hasMeta = true;
+			}}
+			on:waiting={onStall}
+			on:canplay={onResume}
+			on:stalled={onStall}
 			{src}
 		/>
 	</span>{#if $$slots.default}<span class="slot"><slot /></span>{/if}
@@ -51,21 +100,45 @@
 		align-items: center;
 		justify-content: center;
 		padding: 10%;
-		background: linear-gradient(to right, var(--violet) 50%, var(--black) 50%);
+		background: linear-gradient(to right, currentColor 50%, var(--sea-100) 50%);
 		background-size: 200% 100%;
 		background-repeat: no-repeat;
 		background-position: calc(100% - (var(--progress))) 50%;
 		padding: 0;
 		width: 100%;
 		position: relative;
+		border-color: currentColor;
+		border-width: 0;
+		filter: brightness(0.8);
+		transform: scale(0.8);
+		transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+	}
+	.hasMeta {
+		filter: brightness(1);
+		transform: scale(1);
+	}
+	.playing.buffering {
+		animation: pulse 0.5s infinite alternate;
+	}
+	@keyframes pulse {
+		from {
+			filter: brightness(0.8);
+		}
+		to {
+			filter: brightness(1);
+		}
+	}
+	.playing {
+		animation: none;
 	}
 	.playing .icon {
-		color: var(--violet);
-		fill: var(--plum);
+		color: currentColor;
+		fill: var(--sea-100);
 	}
 
 	.slot {
-		background-color: var(--black);
+		background-color: var(--sea-300);
+		margin: 0rem 0.25rem;
 	}
 	.icon {
 		height: calc(100% - 0.5rem);
@@ -103,5 +176,11 @@
 	}
 	.inline .slot {
 		font-size: calc(1em - 0.3rem);
+	}
+	.hide {
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		display: inline-block;
 	}
 </style>

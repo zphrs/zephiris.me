@@ -2,32 +2,35 @@
 	import Audio from '$lib/AudioPlayer.svelte';
 </script>
 
-<ul>
+<ol class="main">
 	<li>
-		<span class="masc gilbert"> <Audio src="/audio/zeph.wav">Zeph</Audio></span>
-		<p class="agender">For when I seem more <span class="masc">masculine</span></p>
+		<span class="masc gilbert"><Audio inline title="Zeph" src="/audio/zeph.wav">Zeph</Audio></span>
+		<span class="fira masc"> -> </span> For when I seem more <span class="masc">masculine</span>
 	</li>
 	<li>
-		<span class="fem gilbert"> <Audio src="/audio/iris.wav">Iris</Audio></span>
-		<p class="agender">For when I seem more <span class="fem">feminine</span></p>
+		<span class="fem gilbert"> <Audio inline title="Iris" src="/audio/iris.wav">Iris</Audio></span>
+		<span class="fira fem">~></span> For when I seem more <span class="fem">feminine</span>
 	</li>
 	<li class="phire">
 		<span class="andro gilbert">
-			<Audio src="/audio/phire.wav"><span class="andro">Phire</span></Audio></span
+			<Audio inline title="Phire" src="/audio/phire.wav"><span class="andro">Phire</span></Audio
+			></span
 		>
-		<p class="agender">For when I seem more <span class="andro">androgynous</span></p>
+		<span class="fira andro">{'-~'}</span> For when I seem more
+		<span class="andro">androgynous</span>
 	</li>
-</ul>
+</ol>
 
 <style>
-	ul {
+	ul,
+	ol {
 		list-style: none;
 		padding: 0;
 		display: flex;
 		flex-wrap: wrap;
 		margin-top: var(--gap-1);
 	}
-	li {
+	.main > li {
 		padding: var(--gap-0-5);
 		outline: 2px solid var(--violet);
 		outline-offset: -1px;
@@ -36,11 +39,11 @@
 		text-align: center;
 	}
 
-	li > p {
+	li > ul {
 		margin: 0;
 		padding-top: 0.5rem;
 		padding-bottom: 0.25rem;
 		text-align: left;
-		padding-left: 2rem;
+		padding-left: 1.5rem;
 	}
 </style>

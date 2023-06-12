@@ -8,6 +8,7 @@
 	--blue-700: #5bcefa;
 	--indigo-700: #8ea5f8;
 	--lavender-700: #d7a0f7;
+	--violet-100: #040421;
 	--pink-700: #f5a9b8;
 	--white: #ffffff;
 	--black: #1e1729;
@@ -24,15 +25,35 @@
 	--sky: #9cdcfe;
 	--water: #86b6ec;
 	--spring: #4fc1ff;
-	--ultraviolet: #443388;
 	--violet: #aba3f1;
+	--sea-100: #193632;
+	--sea-300: #345348;
+	--sea-500: #6e9d87;
+	--sea-700: #ace9c5;
+	--sea-900: #d9ffe8;
+	--violet-100: #040421;
+	--violet-300: #2d27a4;
+	--violet-500: #645cee;
+	--violet-700: #a8a9f4;
+	--violet-900: #cfd3ff;
+	--gray-0: #000000;
+	--gray-10: #19191a;
+	--gray-20: #313233;
+	--gray-30: #4b4c4d;
+	--gray-40: #646666;
+	--gray-50: #7e807f;
+	--gray-60: #979998;
+	--gray-70: #b0b3b0;
+	--gray-80: #cbccca;
+	--gray-90: #e5e6e2;
+	--gray-100: #fffef7;
 	--plum: #1e1729;
 	--gap-2: 2rem;
 	--gap-1: 1rem;
 	--gap-0-5: 0.5rem;
 	--gap-0-25: 0.25rem;
 	font-family: 'Atkinson Hyperlegible', sans-serif;
-	background-color: var(--plum);
+	background-color: var(--violet-100);
 	color: var(--white);
 	line-height: 1.75;
 	font-size: 1.25rem;
@@ -54,6 +75,12 @@ h2,
 h3,
 header {
 	font-family: 'Gilbert', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	color: var(--sea-900);
 }
 
 p {
@@ -90,12 +117,16 @@ p {
 }
 
 .card {
-	border: 2px solid var(--violet);
+	border: 2px solid var(--sea-700);
 	padding: var(--gap-0-5);
 }
 
+.fira {
+	font-family: 'Fira Code', monospace;
+}
+
 button {
-	border: 2px solid var(--violet);
+	border: 2px solid var(--violet-700);
 	border-radius: var(--gap-0-5);
 	background-color: transparent;
 	color: inherit;
