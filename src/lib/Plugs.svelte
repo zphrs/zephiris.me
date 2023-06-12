@@ -73,15 +73,23 @@
 	function daysBetween(startDate: Date, endDate: Date) {
 		return (treatAsUTC(endDate) - treatAsUTC(startDate)) / MSPerDay;
 	}
+	function daysUntilPlug(plug: Plug) {
+		return plug.estPublishDate
+			? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate))
+			: 0;
+	}
+	function addS(n: number) {
+		return n + (n == 1 ? ' day' : ' days');
+	}
 </script>
 
 <div class="grid">
 	{#each plugs as plug}
 		<a
 			class="card"
-			style={`--days-left: "${
+			style={`--days-left: "${addS(
 				plug.estPublishDate ? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate)) : 0
-			} days"; --days-percent: ${
+			)}"; --days-percent: ${
 				(plug.estPublishDate
 					? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate))
 					: 0) / 160
@@ -143,7 +151,7 @@
 		/* filter: grayscale(1); */
 		border-color: var(--gold-700) !important;
 		filter: blur(calc(var(--days-percent, 0) * 0.2rem)) opacity(calc(1 - var(--days-percent, 0)));
-		transform-origin: calc(100% * var(--days-percent, 0)) 0;
+		transform-origin: calc(100% * var(--days-percent, 0)) calc(60% * var(--days-percent, 0));
 		z-index: -1;
 		transform: scale(calc(1 - var(--days-percent, 0)));
 		background-image: linear-gradient(135deg, var(--gold-100) 40%, var(--gold-500) 40%);
