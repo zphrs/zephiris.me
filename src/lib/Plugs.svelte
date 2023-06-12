@@ -16,6 +16,11 @@
 			href: 'https://github.com/zphrs'
 		},
 		{
+			name: 'Forest Cottage',
+			href: 'https://marketplace.visualstudio.com/items?itemName=zephyrj.forest-cottage',
+			desc: 'VS Code Theme'
+		},
+		{
 			href: 'https://at.zephiris.me',
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
