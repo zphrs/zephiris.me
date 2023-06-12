@@ -33,34 +33,34 @@
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
 			disabled: true,
-			estPublishDate: new Date(2023, 6, 25)
+			estPublishDate: new Date(2023, 5, 25)
 		},
 		{
 			name: 'animent.dev',
 			href: 'https://animent.dev',
 			desc: 'Web Design Course',
 			disabled: true,
-			estPublishDate: new Date(2023, 7, 2)
+			estPublishDate: new Date(2023, 6, 2)
 		},
 		{
 			name: 'zephiris.dev',
 			href: 'https://zephiris.dev',
 			desc: 'Technical Blog',
 			disabled: true,
-			estPublishDate: new Date(2023, 7, 16)
+			estPublishDate: new Date(2023, 6, 16)
 		},
 		{
 			name: 'creative.zephiris.me',
 			href: 'https://creative.zephiris.me',
 			desc: 'Creative Blog',
 			disabled: true,
-			estPublishDate: new Date(2023, 8, 6)
+			estPublishDate: new Date(2023, 7, 6)
 		},
 		{
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
 			disabled: true,
-			estPublishDate: new Date(2023, 9, 17)
+			estPublishDate: new Date(2023, 8, 17)
 		}
 	];
 	function treatAsUTC(date: Date) {
