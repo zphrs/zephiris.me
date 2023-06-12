@@ -30,8 +30,8 @@
 			buffering = true;
 			audio.play();
 		} else {
-			audio.pause();
 			currentTime = 0;
+			audio.pause();
 		}
 	}
 	async function loadMedia() {
@@ -49,7 +49,7 @@
 	function onResume() {
 		buffering = false;
 	}
-	$: progress = audio && audio.duration ? (currentTime / audio.duration) * 100 : 0;
+	$: progress = audio && audio.duration && playing ? (currentTime / audio.duration) * 100 : 0;
 	$: progress && onResume();
 	let audio: HTMLAudioElement;
 	export let currentTime = 0;
@@ -103,7 +103,7 @@
 		background: linear-gradient(to right, currentColor 50%, var(--sea-100) 50%);
 		background-size: 200% 100%;
 		background-repeat: no-repeat;
-		background-position: calc(100% - (var(--progress))) 50%;
+		background-position: 100% 50%;
 		padding: 0;
 		width: 100%;
 		position: relative;
@@ -129,6 +129,7 @@
 		}
 	}
 	.playing {
+		background-position: calc(100% - (var(--progress))) 50%;
 		animation: none;
 	}
 	.playing .icon {

@@ -46,3 +46,31 @@
 <h2>Explore my other sites below:</h2>
 
 <Plugs />
+
+<style>
+	article {
+		position: relative;
+		margin-bottom: var(--gap-2);
+	}
+	article::after {
+		content: '';
+		position: absolute;
+		bottom: -1.125rem;
+		left: 0;
+		filter: blur(0.1rem);
+		width: 100%;
+		height: 0.25rem;
+		background: linear-gradient(
+			0.5deg,
+			var(--pink-700),
+			var(--blue-700),
+			var(--indigo-700),
+			var(--lavender-700),
+			var(--white),
+			var(--gold-700),
+			var(--sea-700),
+			var(--gold-500),
+			var(--sea-500)
+		);
+	}
+</style>

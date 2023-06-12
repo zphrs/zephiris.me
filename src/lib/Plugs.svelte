@@ -1,11 +1,14 @@
 <script lang="ts">
+	type EventuallyReleasable = {
+		disabled?: boolean;
+		estPublishDate?: Date;
+	};
 	type Plug = {
 		name: string;
 		href: string;
 		desc?: string;
-		disabled: boolean;
-	};
-	const plugs = [
+	} & (EventuallyReleasable | undefined);
+	const plugs: Plug[] = [
 		{
 			name: 'zephyrj.com',
 			href: 'https://zephyrj.com',
@@ -18,45 +21,69 @@
 		{
 			name: 'Forest Cottage',
 			href: 'https://marketplace.visualstudio.com/items?itemName=zephyrj.forest-cottage',
-			desc: 'VS Code Theme'
+			desc: 'A Foresty VS Code Color\nTheme'
 		},
 		{
-			href: 'https://at.zephiris.me',
+			href: 'https://@.zephiris.me',
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
-			disabled: true
+			disabled: true,
+			estPublishDate: new Date(2023, 6, 25)
+		},
+		{
+			name: 'animent.dev',
+			href: 'https://animent.dev',
+			desc: 'Web Design Course',
+			disabled: true,
+			estPublishDate: new Date(2023, 7, 2)
 		},
 		{
 			name: 'zephiris.dev',
 			href: 'https://zephiris.dev',
 			desc: 'Technical Blog',
-			disabled: true
+			disabled: true,
+			estPublishDate: new Date(2023, 7, 16)
 		},
 		{
 			name: 'creative.zephiris.me',
 			href: 'https://creative.zephiris.me',
-			desc: 'Creative Endeavors',
-			disabled: true
-		},
-		{
-			name: 'animent.dev',
-			href: 'https://animent.dev',
-			desc: 'Web Design Tutorial',
-			disabled: true
+			desc: 'Creative Blog',
+			disabled: true,
+			estPublishDate: new Date(2023, 8, 6)
 		},
 		{
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
-			desc: 'Future Project',
-			disabled: true
+			disabled: true,
+			estPublishDate: new Date(2023, 9, 17)
 		}
 	];
+	function treatAsUTC(date: Date) {
+		var result = new Date(date);
+		result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+		return Number(result);
+	}
+
+	const MSPerDay = 24 * 60 * 60 * 1000;
+	function daysBetween(startDate: Date, endDate: Date) {
+		return (treatAsUTC(endDate) - treatAsUTC(startDate)) / MSPerDay;
+	}
 </script>
 
 <div class="grid">
 	{#each plugs as plug}
-		<a class="card" href={plug.disabled ? undefined : plug.href} class:disabled={plug.disabled}>
+		<a
+			class="card"
+			style={`--days-left: "${
+				plug.estPublishDate ? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate)) : 0
+			} days"`}
+			href={plug.disabled ? undefined : plug.href}
+			class:disabled={plug.disabled}
+		>
 			<header>{plug.name}</header>
+			{#if plug.estPublishDate}
+				<aside class="gilbert small">{plug.estPublishDate.toLocaleDateString()}</aside>
+			{/if}
 			{#if plug.desc}
 				<p>{plug.desc}</p>
 			{/if}
@@ -77,6 +104,9 @@
 	}
 	.card > p {
 		font-size: 1.1rem;
+		line-height: 1.25;
+		text-align: center;
+		white-space: pre-wrap;
 	}
 
 	a.card {
@@ -94,14 +124,28 @@
 		font-size: 1.5em;
 	}
 
+	.small {
+		font-size: 0.8rem;
+	}
+
 	a.card.disabled {
 		/* filter: grayscale(1); */
-		border-color: var(--gray-90);
-		background-image: linear-gradient(135deg, var(--gray-10) 40%, var(--gray-90) 40%);
+		border-color: var(--gold-700);
+		background-image: linear-gradient(135deg, var(--gold-100) 40%, var(--gold-500) 40%);
 		background-position: 0 0 !important;
 		color: var(--gray-90) !important;
 		cursor: default;
 		position: relative;
+	}
+
+	a.card.disabled::before {
+		content: var(--days-left, 0);
+		font-size: 1.1rem;
+		position: absolute;
+		top: var(--gap-0-25);
+		left: var(--gap-0-5);
+		color: var(--gold-700);
+		font-family: 'Gilbert', sans-serif;
 	}
 
 	a.card.disabled::after {
@@ -112,7 +156,6 @@
 		font-size: 0.95rem;
 		font-family: 'Gilbert', sans-serif;
 		transform-origin: center;
-		text-align: center;
 		transform: rotate(-45deg);
 	}
 

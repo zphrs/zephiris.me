@@ -22,7 +22,6 @@
 </ol>
 
 <style>
-	ul,
 	ol {
 		list-style: none;
 		padding: 0;
@@ -37,13 +36,5 @@
 		flex-grow: 1;
 		width: 300px;
 		text-align: center;
-	}
-
-	li > ul {
-		margin: 0;
-		padding-top: 0.5rem;
-		padding-bottom: 0.25rem;
-		text-align: left;
-		padding-left: 1.5rem;
 	}
 </style>
