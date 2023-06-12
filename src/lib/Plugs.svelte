@@ -24,7 +24,11 @@
 			desc: 'A Foresty VS Code Color\nTheme'
 		},
 		{
-			href: 'https://@.zephiris.me',
+			name: 'Boids',
+			href: 'https://zphrs.github.io/jsExperiments/boids'
+		},
+		{
+			href: 'https://at.zephiris.me',
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
 			disabled: true,
