@@ -31,7 +31,7 @@
 	}
 	.main > li {
 		padding: var(--gap-0-5);
-		outline: 2px solid var(--violet);
+		outline: 2px solid var(--violet-700);
 		outline-offset: -1px;
 		flex-grow: 1;
 		width: 300px;

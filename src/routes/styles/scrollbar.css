@@ -7,10 +7,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--violet);
+	background-color: var(--violet-900);
 	margin: 0.1rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background-color: var(--ultraviolet);
+	background-color: var(--violet-700);
 }

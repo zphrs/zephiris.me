@@ -39,7 +39,7 @@
 		width: 100vw;
 		transition: border-color 0.2s 0s;
 		animation: fadein 0.2s 0s both;
-		border-bottom: 2px solid var(--violet-700);
+		border-bottom: 2px solid var(--violet-900);
 		background-color: var(--violet-100);
 	}
 	@keyframes fadein {
@@ -47,7 +47,7 @@
 			border-bottom-color: transparent;
 		}
 		100% {
-			border-bottom-color: var(--violet-700);
+			border-bottom-color: var(--violet-900);
 		}
 	}
 	div.hide {
