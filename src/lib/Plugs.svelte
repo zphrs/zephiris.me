@@ -34,6 +34,11 @@
 			desc: 'Web Design Course'
 		},
 		{
+			name: 'Twitter Visualization',
+			href: 'https://zphrs.github.io/humn-55-final/',
+			desc: 'How Viral Spikes Shape Digital Movements'
+		},
+		{
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
 			disabled: true,
@@ -122,6 +127,7 @@
 		line-height: 1.25;
 		text-align: center;
 		white-space: pre-wrap;
+		padding: 0 var(--gap-1);
 	}
 
 	a.card {
