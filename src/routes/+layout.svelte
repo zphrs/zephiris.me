@@ -6,13 +6,7 @@
 	import './styles/scrollbar.css';
 </script>
 
-<nav>
-	<Header />
-</nav>
-
-<main>
-	<slot />
-</main>
+<slot />
 
 <footer>
 	<p>

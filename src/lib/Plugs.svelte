@@ -29,38 +29,36 @@
 			desc: 'A GPGPU sim with\nWebGL'
 		},
 		{
-			href: 'https://at.zephiris.me',
-			name: 'at.zephiris.me',
-			desc: 'Contact Card',
-			disabled: true,
-			estPublishDate: new Date(2023, 5, 25)
-		},
-		{
 			name: 'animent.dev',
 			href: 'https://animent.dev',
-			desc: 'Web Design Course',
-			disabled: true,
-			estPublishDate: new Date(2023, 6, 2)
-		},
-		{
-			name: 'zephiris.dev',
-			href: 'https://zephiris.dev',
-			desc: 'Technical Blog',
-			disabled: true,
-			estPublishDate: new Date(2023, 6, 16)
-		},
-		{
-			name: 'creative.zephiris.me',
-			href: 'https://creative.zephiris.me',
-			desc: 'Creative Blog',
-			disabled: true,
-			estPublishDate: new Date(2023, 7, 6)
+			desc: 'Web Design Course'
 		},
 		{
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
 			disabled: true,
 			estPublishDate: new Date(2023, 8, 17)
+		},
+		{
+			href: 'https://at.zephiris.me',
+			name: 'at.zephiris.me',
+			desc: 'Contact Card',
+			disabled: true,
+			estPublishDate: new Date(2023, 8, 30)
+		},
+		{
+			name: 'creative.zephiris.me',
+			href: 'https://creative.zephiris.me',
+			desc: 'Creative Blog',
+			disabled: true,
+			estPublishDate: new Date(2023, 9, 10)
+		},
+		{
+			name: 'zephiris.dev',
+			href: 'https://zephiris.dev',
+			desc: 'Technical Blog',
+			disabled: true,
+			estPublishDate: new Date(2023, 9, 30)
 		}
 	];
 	function treatAsUTC(date: Date) {
@@ -71,7 +69,7 @@
 
 	const MSPerDay = 24 * 60 * 60 * 1000;
 	function daysBetween(startDate: Date, endDate: Date) {
-		return (treatAsUTC(endDate) - treatAsUTC(startDate)) / MSPerDay;
+		return Math.max((treatAsUTC(endDate) - treatAsUTC(startDate)) / MSPerDay, 0);
 	}
 	function daysUntilPlug(plug: Plug) {
 		return plug.estPublishDate
