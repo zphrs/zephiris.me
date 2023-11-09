@@ -34,7 +34,7 @@
 			desc: 'Web Design Course'
 		},
 		{
-			name: 'Twitter Visualization',
+			name: 'Twitter Vis',
 			href: 'https://zphrs.github.io/humn-55-final/',
 			desc: 'How Viral Spikes Shape Digital Movements'
 		},
