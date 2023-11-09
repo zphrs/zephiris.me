@@ -42,28 +42,28 @@
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
 			disabled: true,
-			estPublishDate: new Date(2023, 8, 17)
+			estPublishDate: new Date(2024, 1, 1)
 		},
 		{
 			href: 'https://at.zephiris.me',
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
 			disabled: true,
-			estPublishDate: new Date(2023, 8, 30)
+			estPublishDate: new Date(2024, 1, 15)
 		},
 		{
 			name: 'creative.zephiris.me',
 			href: 'https://creative.zephiris.me',
 			desc: 'Creative Blog',
 			disabled: true,
-			estPublishDate: new Date(2023, 9, 10)
+			estPublishDate: new Date(2024, 1, 30)
 		},
 		{
 			name: 'zephiris.dev',
 			href: 'https://zephiris.dev',
 			desc: 'Technical Blog',
 			disabled: true,
-			estPublishDate: new Date(2023, 9, 30)
+			estPublishDate: new Date(2024, 1, 30)
 		}
 	];
 	function treatAsUTC(date: Date) {
