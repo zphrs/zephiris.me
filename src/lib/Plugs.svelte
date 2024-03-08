@@ -39,6 +39,17 @@
 			desc: 'How Viral Spikes Shape Digital Movements'
 		},
 		{
+			name: 'Aninest',
+			href: 'https://plexigraph.github.io/aninest',
+			desc: 'A nested animation library'
+		},
+		{
+			name: 'Plex UI',
+			href: 'https://plex.plexigraph.com',
+			disabled: true,
+			estPublishDate: new Date(2024, 1, 1)
+		},
+		{
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
 			disabled: true,
