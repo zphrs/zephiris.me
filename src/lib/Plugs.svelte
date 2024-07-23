@@ -95,6 +95,9 @@
 		if (days == 0) {
 			return 500;
 		}
+		if (days > 700) {
+			return 700;
+		}
 
 		return days;
 	}
