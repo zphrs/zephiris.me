@@ -74,8 +74,7 @@
 		{
 			name: 'plexigraph.com',
 			href: 'https://plexigraph.com',
-			disabled: true,
-			estPublishDate: new Date(2024, 1, 1)
+			disabled: true
 		}
 	];
 	function treatAsUTC(date: Date) {
@@ -118,7 +117,7 @@
 			class:disabled={plug.disabled}
 		>
 			<header>{plug.name}</header>
-			{#if plug.estPublishDate}
+			{#if plug.estPublishDate && Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate)) > 0}
 				<aside class="gilbert small">{plug.estPublishDate.toLocaleDateString()}</aside>
 			{/if}
 			{#if plug.desc}
