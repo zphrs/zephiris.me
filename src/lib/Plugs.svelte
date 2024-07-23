@@ -25,7 +25,7 @@
 		},
 		{
 			name: 'Boids',
-			href: 'https://zphrs.github.io/jsExperiments/boids',
+			href: 'https://zph.rs/jsExperiments/boids',
 			desc: 'A GPGPU sim with\nWebGL'
 		},
 		{
@@ -35,46 +35,47 @@
 		},
 		{
 			name: 'Twitter Vis',
-			href: 'https://zphrs.github.io/humn-55-final/',
+			href: 'https://zph.rs/humn-55-final/',
 			desc: 'How Viral Spikes Shape Digital Movements'
 		},
 		{
 			name: 'Aninest',
-			href: 'https://plexigraph.github.io/aninest',
+			href: 'https://aninest.zephiris.dev',
 			desc: 'A nested animation library'
-		},
-		{
-			name: 'Plex UI',
-			href: 'https://plex.plexigraph.com',
-			disabled: true,
-			estPublishDate: new Date(2024, 1, 1)
-		},
-		{
-			name: 'plexigraph.com',
-			href: 'https://plexigraph.com',
-			disabled: true,
-			estPublishDate: new Date(2024, 1, 1)
 		},
 		{
 			href: 'https://at.zephiris.me',
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
 			disabled: true,
-			estPublishDate: new Date(2024, 1, 15)
+			estPublishDate: new Date(2025, 1, 15)
 		},
 		{
 			name: 'creative.zephiris.me',
 			href: 'https://creative.zephiris.me',
 			desc: 'Creative Blog',
 			disabled: true,
-			estPublishDate: new Date(2024, 1, 30)
+			estPublishDate: new Date(2025, 1, 30)
 		},
 		{
 			name: 'zephiris.dev',
 			href: 'https://zephiris.dev',
 			desc: 'Technical Blog',
 			disabled: true,
-			estPublishDate: new Date(2024, 1, 30)
+			estPublishDate: new Date(2025, 1, 30)
+		},
+		{
+			name: 'Plex UI',
+			href: 'https://plex.plexigraph.com',
+			desc: 'A Web Component Library',
+			disabled: true,
+			estPublishDate: new Date(2026, 1, 1)
+		},
+		{
+			name: 'plexigraph.com',
+			href: 'https://plexigraph.com',
+			disabled: true,
+			estPublishDate: new Date(2024, 1, 1)
 		}
 	];
 	function treatAsUTC(date: Date) {
@@ -88,11 +89,17 @@
 		return Math.max((treatAsUTC(endDate) - treatAsUTC(startDate)) / MSPerDay, 0);
 	}
 	function daysUntilPlug(plug: Plug) {
-		return plug.estPublishDate
+		const days = plug.estPublishDate
 			? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate))
 			: 0;
+		if (days == 0) {
+			return 500;
+		}
+
+		return days;
 	}
 	function addS(n: number) {
+		if (n === 0) return 'eventually';
 		return n + (n == 1 ? ' day' : ' days');
 	}
 </script>
@@ -103,11 +110,7 @@
 			class="card"
 			style={`--days-left: "${addS(
 				plug.estPublishDate ? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate)) : 0
-			)}"; --days-percent: ${
-				(plug.estPublishDate
-					? Math.round(daysBetween(new Date(Date.now()), plug.estPublishDate))
-					: 0) / 160
-			}`}
+			)}"; --days-percent: ${daysUntilPlug(plug) / 720}`}
 			href={plug.disabled ? undefined : plug.href}
 			class:disabled={plug.disabled}
 		>
