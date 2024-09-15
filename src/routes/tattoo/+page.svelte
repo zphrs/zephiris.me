@@ -14,7 +14,7 @@
 			src="./Tattoo.svg"
 			alt="waves on the left side and two particles on the right, separated with a vertical line."
 		/>
-		<h3>Info Sheet</h3>
+		<h2>Info Sheet</h2>
 		<table>
 			<tr>
 				<th>Name</th>
@@ -39,7 +39,7 @@
 				</td>
 			</tr>
 		</table>
-		<h3>Symbolism</h3>
+		<h2>Symbolism</h2>
 		<table>
 			<tr>
 				<th>Ripples</th>
@@ -59,7 +59,7 @@
 			</tr>
 		</table>
 
-		<h3>Explanation</h3>
+		<h2>Explanation</h2>
 
 		<p>
 			Overall the tattoo represents wave particle duality which is a great metaphor for my gender: I
@@ -67,6 +67,7 @@
 			a particle when I’m observed. When I’m not being observed it is a probabilistic wave of
 			possibilities.
 		</p>
+		<h3>Particles</h3>
 		<p>
 			The two particles — one in the middle and another up and left from the center — represent why
 			I continue to do anything, my reasons for existing:
@@ -81,15 +82,17 @@
 				person I felt unconditional love with.
 			</li>
 		</ul>
+		<h3>Ripples</h3>
 		<p>
 			The ripples represent the endless possibilities of what I might be at any given moment. They
 			also represent how even though my presentation might not be consistent, there is a consistent
 			underlying essense and discernable pattern to how I present; i.e. who I am.
 		</p>
+		<h3>Center Line</h3>
 		<p>
 			The vertical line represents a split between the potential and the present known. It
-			represents collapsing the probabilities with sharp observation into cold actualities. In this
-			case, the cold actualities are the particles, of which I have two presently.
+			represents collapsing the probabilities with sharp observation into rigid actualities. In this
+			case, the actualities are the particles, of which I have two presently.
 		</p>
 		<p>
 			I look forward to adding many more dots over my lifetime whenever I find a new achievable goal
