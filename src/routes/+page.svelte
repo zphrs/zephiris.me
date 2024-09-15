@@ -14,10 +14,11 @@
 	<meta property="og:description" content="Learn about my name!" />
 </svelte:head>
 <nav>
-	<Header />
+	<Header changeOnScroll={true} />
 </nav>
 <main>
 	<article>
+		<h2>About my Name</h2>
 		<p>
 			My preferred name is <Audio inline src="audio/zephiris.wav" title="Zephiris"
 				><Zephiris /></Audio
@@ -46,6 +47,33 @@
 		<p>
 			All three are equally correct, so use whichever one you think fits me best in the moment. Of
 			course you can also call me by my full name, <Zephiris />, too.
+		</p>
+	</article>
+	<article>
+		<h2>About My Gender</h2>
+		<p>
+			I am <span class="andro">nonbinary</span>, and I often use the color
+			<span class="violet">violet</span> to describe my gender. <span class="violet">Violet</span>,
+			being the opposite of <span class="fire">red</span> and a <span class="andro">blend</span> of
+			<span class="masc">blue</span>
+			and <span class="fem">pink</span>, is a color which can represent the mix of
+			<span class="masc">masculinity</span>
+			<span class="andro">and</span> <span class="fem">femininity</span>. While
+			<span class="fire">red</span> is a color of anger, of <span class="fire">blood</span>,
+			<span class="violet">violet</span> is a color of complexity, of
+			<span class="andro">mystery</span>, of intensity. While <span class="fire">red</span> is
+			passionate, <span class="violet">violet</span> is focused.
+		</p>
+		<p>
+			I often find my presentation always collapses into a slightly different blend of
+			<span class="masc">masculinity</span>
+			<span class="andro">and</span> <span class="fem">femininity</span> -
+			<span class="masc">manhood</span>
+			<span class="andro">and</span>
+			<span class="fem">womanhood</span>. While the underlying <span class="andro">essense</span> of
+			myself does not waver, the way I convey that essense does. If you'd like to read more about
+			how I view my gender in relation to my presentation through the lens of my tattoo check out
+			<a href="./tattoo" class="compass">my compass tattoo</a>.
 		</p>
 	</article>
 	<h2>Explore my other sites below:</h2>
@@ -80,7 +108,28 @@
 		);
 	}
 	h2 {
-		filter: drop-shadow(0 0 2px var(--sea-700));
+		filter: drop-shadow(0 0 1.25px var(--sea-700));
+	}
+	.fire {
+		color: #ff8c54;
+	}
+	.compass {
+		color: var(--sea-900);
+	}
+	.compass:visited {
+		color: var(--sea-700);
+	}
+	.compass::before {
+		content: ' ';
+		background-image: url('/Tattoo.svg');
+		position: relative;
+		display: inline-block;
+		width: 1rem;
+		border-radius: 100%;
+		background-color: var(--sea-900);
+		height: 1rem;
+		top: 0.25rem;
+		margin-right: 0.25rem;
 	}
 	nav {
 		position: fixed;
@@ -97,6 +146,10 @@
 		margin-left: auto;
 		margin-right: auto;
 		box-sizing: border-box;
+	}
+
+	.violet {
+		color: var(--violet-700);
 	}
 
 	main p {

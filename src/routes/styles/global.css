@@ -125,3 +125,10 @@ button {
 	font-family: 'Gilbert', sans-serif;
 	cursor: pointer;
 }
+
+a {
+	color: var(--violet-700);
+}
+a:visited {
+	color: var(--lavender-700);
+}

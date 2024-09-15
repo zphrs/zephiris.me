@@ -35,6 +35,11 @@
 		outline-offset: -1px;
 		flex-grow: 1;
 		width: 300px;
+		text-align: left;
+	}
+	li .gilbert {
+		width: 4.5rem;
+		display: inline-block;
 		text-align: center;
 	}
 </style>

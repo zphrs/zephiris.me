@@ -1,16 +1,25 @@
 <script>
+	import Zephiris from '$lib/Zephiris.svelte';
 	import Header from '../Header.svelte';
 </script>
 
+<nav>
+	<Header />
+</nav>
 <main>
 	<article>
-		<h2>Tattoo</h2>
+		<h1>My Compass Tattoo</h1>
 
 		<img
 			src="./Tattoo.svg"
 			alt="waves on the left side and two particles on the right, separated with a vertical line."
 		/>
+		<h3>Info Sheet</h3>
 		<table>
+			<tr>
+				<th>Name</th>
+				<td>my compass </td>
+			</tr>
 			<tr>
 				<th>Placement</th>
 				<td>Middle of my chest</td>
@@ -19,15 +28,44 @@
 				<th>Size</th>
 				<td>3in</td>
 			</tr>
+			<tr>
+				<th>In ASCII Art</th>
+				<td>
+					⠀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+					⠀&nbsp;◜&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;.<br />
+					(&nbsp; ﹙ ◑&nbsp;<br />
+					⠀&nbsp;◟&nbsp;&nbsp;&nbsp;|<br />
+					⠀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+				</td>
+			</tr>
+		</table>
+		<h3>Symbolism</h3>
+		<table>
+			<tr>
+				<th>Ripples</th>
+				<td>probabilistic waves</td>
+			</tr>
+			<tr>
+				<th>Center Line</th>
+				<td>Slit of observation</td>
+			</tr>
+			<tr>
+				<th>Middle Dot</th>
+				<td>curiosity</td>
+			</tr>
+			<tr>
+				<th>Top Right Dot</th>
+				<td>unconditional love</td>
+			</tr>
 		</table>
 
-		<h2>Explaination</h2>
+		<h3>Explanation</h3>
 
 		<p>
 			Overall the tattoo represents wave particle duality which is a great metaphor for my gender: I
-			am both a probabilistic wave and a discrete particle. I am constantly collapsing into a
-			particle when I’m observed (you either know my position or my velocity but not both). When I’m
-			not being observed I am a probabilistic wave of possibilities.
+			am both a probabilistic wave and a discrete particle. My gender is constantly collapsing into
+			a particle when I’m observed. When I’m not being observed it is a probabilistic wave of
+			possibilities.
 		</p>
 		<p>
 			The two particles — one in the middle and another up and left from the center — represent why
@@ -39,10 +77,20 @@
 				works
 			</li>
 			<li>
-				The other stands for mutual unconditional love — especially the love I have toward my
-				partner who is the first person I felt unconditional love with.
+				The other stands for mutual unconditional love — especially the love I have toward the first
+				person I felt unconditional love with.
 			</li>
 		</ul>
+		<p>
+			The ripples represent the endless possibilities of what I might be at any given moment. They
+			also represent how even though my presentation might not be consistent, there is a consistent
+			underlying essense and discernable pattern to how I present; i.e. who I am.
+		</p>
+		<p>
+			The vertical line represents a split between the potential and the present known. It
+			represents collapsing the probabilities with sharp observation into cold actualities. In this
+			case, the cold actualities are the particles, of which I have two presently.
+		</p>
 		<p>
 			I look forward to adding many more dots over my lifetime whenever I find a new achievable goal
 			to strive toward.
@@ -77,8 +125,13 @@
 		color: var(--sea-700);
 	}
 
+	nav {
+		position: fixed;
+	}
+
 	main {
 		padding: var(--gap-1);
+		padding-top: calc(3rem + var(--gap-1));
 		min-height: 100%;
 		max-width: 1000px;
 		margin-left: auto;
@@ -96,5 +149,9 @@
 	}
 	li {
 		margin-bottom: 0.5rem;
+	}
+	h1 {
+		text-align: left;
+		margin: 0;
 	}
 </style>

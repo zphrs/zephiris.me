@@ -2,8 +2,9 @@
 	import { browser } from '$app/environment';
 	import Zephiris from '$lib/Zephiris.svelte';
 	let scroll = 800;
+	export let changeOnScroll = false;
 	let windowWidth = 800;
-	$: sMultip = Math.max(1 - (3.5 * scroll) / windowWidth);
+	$: sMultip = changeOnScroll ? 1 - (3.5 * scroll) / windowWidth : 0;
 	// get root font size
 	let rem = 16;
 	if (browser) {
