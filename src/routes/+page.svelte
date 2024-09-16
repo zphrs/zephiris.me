@@ -151,10 +151,4 @@
 	.violet {
 		color: var(--violet-700);
 	}
-
-	main p {
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-	}
 </style>

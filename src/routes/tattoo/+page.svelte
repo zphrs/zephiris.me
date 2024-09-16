@@ -1,6 +1,7 @@
 <script>
 	import Zephiris from '$lib/Zephiris.svelte';
 	import Header from '../Header.svelte';
+	import '../styles/reset.css';
 </script>
 
 <nav>
@@ -33,7 +34,7 @@
 				<td>
 					⠀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
 					⠀&nbsp;◜&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;.<br />
-					(&nbsp; ﹙ ◑&nbsp;<br />
+					(&nbsp; ﹙&nbsp;◑&nbsp;<br />
 					⠀&nbsp;◟&nbsp;&nbsp;&nbsp;|<br />
 					⠀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 				</td>
@@ -82,6 +83,10 @@
 				person I felt unconditional love with.
 			</li>
 		</ul>
+		<p>
+			I look forward to adding many more dots over my lifetime whenever I find a new achievable goal
+			to strive toward.
+		</p>
 		<h3>Ripples</h3>
 		<p>
 			The ripples represent the endless possibilities of what I might be at any given moment. They
@@ -94,9 +99,10 @@
 			represents collapsing the probabilities with sharp observation into rigid actualities. In this
 			case, the actualities are the particles, of which I have two presently.
 		</p>
+		<h3>Why a Compass?</h3>
 		<p>
-			I look forward to adding many more dots over my lifetime whenever I find a new achievable goal
-			to strive toward.
+			Because it points me forward, it orients me. If I am ever wondering why I'm here I can glance
+			down and see at least two reasons why I am here; two reasons which inspire me to get to work.
 		</p>
 	</article>
 </main>
@@ -148,13 +154,10 @@
 		border-radius: 50%;
 	}
 	ul {
-		margin: 1rem 0;
+		margin-top: 1rem;
+		margin-bottom: 2rem;
 	}
 	li {
 		margin-bottom: 0.5rem;
-	}
-	h1 {
-		text-align: left;
-		margin: 0;
 	}
 </style>

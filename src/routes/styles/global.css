@@ -68,6 +68,14 @@ header {
 	font-family: 'Gilbert', sans-serif;
 }
 
+main p,
+ul,
+ol {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 h1,
 h2,
 h3 {
@@ -75,7 +83,8 @@ h3 {
 }
 
 p {
-	margin-top: var(--gap-1);
+	margin-top: var(--gap-0-25);
+	margin-bottom: var(--gap-1);
 }
 
 @keyframes fadein {
