@@ -18,7 +18,7 @@
 </nav>
 <main>
 	<article>
-		<h2>About my Name</h2>
+		<h2>About My Name</h2>
 		<p>
 			My preferred name is <Audio inline src="audio/zephiris.wav" title="Zephiris"
 				><Zephiris /></Audio
