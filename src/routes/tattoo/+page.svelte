@@ -32,11 +32,11 @@
 			<tr>
 				<th>In ASCII Art</th>
 				<td>
-					⠀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+					⠀⠀⠀&nbsp;|<br />
 					⠀&nbsp;◜&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;.<br />
 					(&nbsp; ﹙&nbsp;◑&nbsp;<br />
 					⠀&nbsp;◟&nbsp;&nbsp;&nbsp;|<br />
-					⠀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+					⠀⠀⠀&nbsp;|
 				</td>
 			</tr>
 		</table>
