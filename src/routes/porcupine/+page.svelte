@@ -20,7 +20,8 @@
 		type Animation,
 		ZERO_VEC2,
 		copy,
-		copyObject
+		copyObject,
+		type unsubscribe
 	} from 'aninest';
 	import { getUpdateLayer } from '@aninest/extensions';
 	import { onMount } from 'svelte';
@@ -90,8 +91,8 @@
 			addLocalListener(anim.children.shape.children.p2, 'start', () =>
 				onPointChange(anim.children.shape.children.p2)
 			);
-
-			return {
+			let cancelRandomize: unsubscribe | undefined = undefined;
+			const out = {
 				setP1(p1: Vec2) {
 					modifyTo(anim.children.shape, { p1 });
 				},
@@ -104,9 +105,15 @@
 				setColor(color: Color) {
 					return modifyTo(anim, { color });
 				},
+				randomize(withTimeout: boolean) {
+					if (cancelRandomize) cancelRandomize();
+					cancelRandomize = randomizeLine(out, withTimeout);
+				},
 				update: animLoop,
-				draw: draw
+				draw: draw,
+				symbol: Symbol()
 			};
+			return out;
 		};
 		const canvas: HTMLCanvasElement = document.querySelector('#porky-canvas')!;
 		const increasinglySlower = (x: number) => {
@@ -127,7 +134,7 @@
 			return Math.floor(brightness + randomness);
 		};
 
-		const randomizeLine = async (line: DrawableLine, withTimeout = true) => {
+		const randomizeLine = (line: DrawableLine, withTimeout = true) => {
 			// wait for a random amount of time
 			const canvasMag = mag(newVec2(canvas.width, canvas.height));
 			const p1 = newVec2(canvas.width * Math.random(), canvas.height * Math.random());
@@ -152,16 +159,17 @@
 			});
 			if (!withTimeout) return;
 			const sinceLastClick = (performance.now() - lastClicked) / 1000;
-			setTimeout(
-				() => randomizeLine(line),
+			const cancel = setTimeout(
+				() => line.randomize(),
 				increasinglySlower(1000 * Math.random() + 1000) * sinceLastClick + 1000 * Math.random()
 			);
+			return () => clearTimeout(cancel);
 		};
 		const randomizeLines = (withTimeout = true) => {
 			const sinceLastClick = (performance.now() - lastClicked) / 1000;
 			for (let line of lines) {
 				setTimeout(
-					() => randomizeLine(line, withTimeout),
+					() => line.randomize(withTimeout),
 					increasinglySlower(10000 * Math.random() * sinceLastClick + 1000 * sinceLastClick + 50)
 				);
 			}
@@ -169,7 +177,7 @@
 		let lastClicked = performance.now();
 
 		const onUp = async (e: PointerEvent) => {
-			if (downCt != 0) randomizeLines(false);
+			if (downCt != 0) randomizeLines();
 			downCt = Math.max(0, downCt - 1);
 		};
 
@@ -210,7 +218,7 @@
 		setTimeout(() => {
 			onResize();
 			const canvasMag = mag(newVec2(canvas.width, canvas.height));
-			for (let i = 0; i < canvasMag; i++) {
+			for (let i = 0; i < canvasMag * 2; i++) {
 				const canvasCenter = newVec2(canvas.width / 2, canvas.height / 2);
 				lines.push(createLine(canvasCenter, canvasCenter));
 			}
