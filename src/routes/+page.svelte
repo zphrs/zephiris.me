@@ -54,15 +54,11 @@
 		<p>
 			I am <span class="andro">nonbinary</span>, and I often use the color
 			<span class="violet">violet</span> to describe my gender. <span class="violet">Violet</span>,
-			being the opposite of <span class="fire">red</span> and a <span class="andro">blend</span> of
+			being a <span class="andro">blend</span> of
 			<span class="masc">blue</span>
 			and <span class="fem">pink</span>, is a color which can represent the mix of
 			<span class="masc">masculinity</span>
-			<span class="andro">and</span> <span class="fem">femininity</span>. While
-			<span class="fire">red</span> is a color of anger, of <span class="fire">blood</span>,
-			<span class="violet">violet</span> is a color of complexity, of
-			<span class="andro">mystery</span>, of intensity. While <span class="fire">red</span> is
-			passionate, <span class="violet">violet</span> is focused.
+			<span class="andro">and</span> <span class="fem">femininity</span>.
 		</p>
 		<p>
 			I often find my presentation always collapses into a slightly different blend of
@@ -109,9 +105,6 @@
 	}
 	h2 {
 		filter: drop-shadow(0 0 1.25px var(--sea-700));
-	}
-	.fire {
-		color: #ff8c54;
 	}
 	.compass {
 		color: var(--sea-900);
