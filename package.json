@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"@aninest/extensions": "^1.8.2",
-		"aninest": "^4.11.0"
+		"aninest": "^4.11.0",
+		"workbox-window": "^7.3.0"
 	}
 }

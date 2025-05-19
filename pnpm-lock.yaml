@@ -14,6 +14,9 @@ importers:
       aninest:
         specifier: ^4.11.0
         version: 4.11.0
+      workbox-window:
+        specifier: ^7.3.0
+        version: 7.3.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^2.1.1
