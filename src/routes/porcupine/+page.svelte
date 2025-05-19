@@ -17,9 +17,9 @@
 		mag,
 		addLocalListener,
 		subVec,
-		type Animation,
-		sleep
+		type Animation
 	} from 'aninest';
+	import { onMount } from 'svelte';
 
 	type Color = { r: number; g: number; b: number };
 
@@ -32,7 +32,7 @@
 	};
 
 	const WHITE: Color = { r: 255, g: 255, b: 255 };
-	$: if (browser) {
+	onMount(() => {
 		const createLine = (p1: Vec2, p2: Vec2, color: Color = WHITE) => {
 			// set global interp function to slerp(1s)
 			const animInfo = createAnimation<Line>({ shape: { p1, p2 }, color }, getSlerp(1));
@@ -191,7 +191,7 @@
 				line.draw(ctx);
 			});
 		};
-		canvas.style.position = 'fixed';
+		canvas.style.position = 'relative';
 		canvas.style.top = '0';
 		canvas.style.left = '0';
 		canvas.style.width = window.innerWidth + 'px';
@@ -248,7 +248,7 @@
 				running = false;
 			}
 		};
-	}
+	});
 </script>
 
 <canvas id="porky-canvas" />
