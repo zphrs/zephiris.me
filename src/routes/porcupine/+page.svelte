@@ -17,8 +17,12 @@
 		mag,
 		addLocalListener,
 		subVec,
-		type Animation
+		type Animation,
+		ZERO_VEC2,
+		copy,
+		copyObject
 	} from 'aninest';
+	import { getUpdateLayer } from '@aninest/extensions';
 	import { onMount } from 'svelte';
 
 	type Color = { r: number; g: number; b: number };
@@ -33,20 +37,24 @@
 
 	const WHITE: Color = { r: 255, g: 255, b: 255 };
 	onMount(() => {
+		const updateLayer = getUpdateLayer(requestAnimationFrame);
 		const createLine = (p1: Vec2, p2: Vec2, color: Color = WHITE) => {
+			const shapeCache: { p1: Vec2; p2: Vec2 } = { p1: copy(ZERO_VEC2), p2: copy(ZERO_VEC2) };
+			const colorCache: Color = copyObject(WHITE);
 			// set global interp function to slerp(1s)
-			const animInfo = createAnimation<Line>({ shape: { p1, p2 }, color }, getSlerp(1));
+			const anim = createAnimation<Line>({ shape: { p1, p2 }, color }, getSlerp(1));
+			updateLayer.mount(anim);
 			// set interp function of color to linearInterp(0.5)
-			changeInterpFunction(animInfo, getLinearInterp(0.5), { shape: false });
+			changeInterpFunction(anim, getLinearInterp(0.5), { shape: false });
 			const setColor = (ctx: CanvasRenderingContext2D) => {
-				const color = getLocalState(animInfo.children.color);
+				const color = getLocalState(anim.children.color, colorCache);
 				ctx.strokeStyle = `rgb(${color.r} ${color.g} ${color.b})`;
 			};
 			const drawLine = (ctx: CanvasRenderingContext2D) => {
-				const { p1, p2 } = getStateTree(animInfo.children.shape);
+				getStateTree(anim.children.shape, shapeCache);
 				ctx.beginPath();
-				ctx.moveTo(p1.x, p1.y);
-				ctx.lineTo(p2.x, p2.y);
+				ctx.moveTo(shapeCache.p1.x, shapeCache.p1.y);
+				ctx.lineTo(shapeCache.p2.x, shapeCache.p2.y);
 				ctx.stroke();
 			};
 			const draw = (ctx: CanvasRenderingContext2D) => {
@@ -54,7 +62,7 @@
 				drawLine(ctx);
 			};
 			const animLoop = (dt: number) => {
-				return updateAnimation(animInfo, dt);
+				return updateAnimation(anim, dt);
 			};
 			const onPointChange = (animInfo: Animation<Vec2>) => {
 				const oldPt = getLocalInterpingTo(animInfo);
@@ -63,8 +71,8 @@
 				const diff = Math.max(mag(subVec(newPt, oldPt)), 1);
 
 				const screenMag = mag(newVec2(canvas.width, canvas.height));
-
-				const sinceLastClick = Math.log((performance.now() - lastClicked) / 1000 + 1);
+				const innerDt = (performance.now() - lastClicked) / 1000;
+				const sinceLastClick = innerDt > 0.64 ? Math.log(innerDt + 1) : 0;
 
 				changeInterpFunction(
 					animInfo,
@@ -76,31 +84,28 @@
 					)
 				);
 			};
-			addLocalListener(animInfo.children.shape.children.p1, 'start', () =>
-				onPointChange(animInfo.children.shape.children.p1)
+			addLocalListener(anim.children.shape.children.p1, 'start', () =>
+				onPointChange(anim.children.shape.children.p1)
 			);
-			addLocalListener(animInfo.children.shape.children.p2, 'start', () =>
-				onPointChange(animInfo.children.shape.children.p2)
+			addLocalListener(anim.children.shape.children.p2, 'start', () =>
+				onPointChange(anim.children.shape.children.p2)
 			);
 
 			return {
 				setP1(p1: Vec2) {
-					modifyTo(animInfo.children.shape, { p1 });
+					modifyTo(anim.children.shape, { p1 });
+				},
+				setPoints(points: { p1: Vec2; p2: Vec2 }) {
+					modifyTo(anim.children.shape, points);
 				},
 				setP2(p2: Vec2) {
-					modifyTo(animInfo.children.shape, { p2 });
+					modifyTo(anim.children.shape, { p2 });
 				},
 				setColor(color: Color) {
-					return modifyTo(animInfo, { color });
+					return modifyTo(anim, { color });
 				},
 				update: animLoop,
-				draw: draw,
-				addStartListener(listener: () => void) {
-					addRecursiveListener(animInfo, 'start', listener);
-				},
-				removeStartListener(listener: () => void) {
-					removeRecursiveListener(animInfo, 'start', listener);
-				}
+				draw: draw
 			};
 		};
 		const canvas: HTMLCanvasElement = document.querySelector('#porky-canvas')!;
@@ -110,7 +115,10 @@
 		const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 		type DrawableLine = ReturnType<typeof createLine>;
 		const lines: ReturnType<typeof createLine>[] = [];
-
+		updateLayer.subscribe('updateWithDeltaTime', (dt) => {
+			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+			lines.forEach((line) => line.draw(ctx));
+		});
 		const randColor = () => {
 			const sinceLastClick = (performance.now() - lastClicked) / 1000;
 			const inv = 1 / (sinceLastClick + 1);
@@ -154,7 +162,7 @@
 			for (let line of lines) {
 				setTimeout(
 					() => randomizeLine(line, withTimeout),
-					increasinglySlower(10000 * Math.random() * sinceLastClick + 1000 * sinceLastClick)
+					increasinglySlower(10000 * Math.random() * sinceLastClick + 1000 * sinceLastClick + 50)
 				);
 			}
 		};
@@ -166,15 +174,14 @@
 		};
 
 		let downCt = 0;
-
 		const onMove = (e: PointerEvent) => {
 			if (downCt === 0) return;
 			const x = e.clientX * devicePixelRatio;
 			const y = e.clientY * devicePixelRatio;
 			const p = newVec2(x, y);
+			const points = { p1: p, p2: p };
 			lines.forEach((line) => {
-				line.setP1(p);
-				line.setP2(p);
+				line.setPoints(points);
 			});
 			lastClicked = performance.now();
 		};
@@ -203,7 +210,7 @@
 		setTimeout(() => {
 			onResize();
 			const canvasMag = mag(newVec2(canvas.width, canvas.height));
-			for (let i = 0; i < canvasMag * 2; i++) {
+			for (let i = 0; i < canvasMag; i++) {
 				const canvasCenter = newVec2(canvas.width / 2, canvas.height / 2);
 				lines.push(createLine(canvasCenter, canvasCenter));
 			}
@@ -211,22 +218,8 @@
 			// even though the interval in between each refresh is randomized
 			// the animation always moves smoothly regardless
 			randomizeLines();
-			animLoop(0);
-
-			for (let line of lines) {
-				line.addStartListener(() => {
-					if (running) return;
-					console.log('resuming');
-					running = true;
-					lastTime = performance.now();
-					requestAnimationFrame(animLoop);
-				});
-			}
 		}, 0);
 		window.addEventListener('resize', onResize);
-		window.addEventListener('orientationchange', () => {
-			setTimeout(() => onResize(), 500);
-		});
 		// also call when the device is rotated or the pixel ratio changes
 		window.addEventListener('orientationchange', onResize);
 		window.addEventListener('devicePixelRatio', onResize);
@@ -236,23 +229,6 @@
 		canvas.addEventListener('pointerdown', onDown);
 		canvas.addEventListener('pointermove', onMove);
 		// get the canvas magnitudes
-
-		let lastTime: number | undefined = undefined;
-		let running = false;
-		const animLoop = (time: number) => {
-			const dt = lastTime ? (time - lastTime) / 1000 : 0;
-			lastTime = time;
-			let updateAgain = lines.reduce((needsUpdate, line) => {
-				return line.update(dt) || needsUpdate;
-			}, false);
-			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-			lines.forEach((line) => line.draw(ctx));
-			if (updateAgain) requestAnimationFrame(animLoop);
-			else {
-				lastTime = undefined;
-				running = false;
-			}
-		};
 	});
 </script>
 

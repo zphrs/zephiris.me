@@ -9,17 +9,11 @@ importers:
   .:
     dependencies:
       '@aninest/extensions':
-        specifier: ^1.8.0
-        version: 1.8.0
+        specifier: ^1.8.2
+        version: 1.8.2
       aninest:
         specifier: ^4.11.0
         version: 4.11.0
-      vite-plugin-pwa:
-        specifier: ^1.0.0
-        version: 1.0.0(vite@4.5.14(@types/node@18.13.0)(sass@1.89.0)(terser@5.39.2))(workbox-build@7.3.0)(workbox-window@7.3.0)
-      workbox-window:
-        specifier: ^7.3.0
-        version: 7.3.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^2.1.1
@@ -82,8 +76,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@aninest/extensions@1.8.0':
-    resolution: {integrity: sha512-tnbBioVUJ1jMspngJHpLoNhZON2BQPqMNDqD6jEQdJgkbqWGKQiiu3GgrA22E34fg3MMAZ8bjoP6ARxXWoMQww==}
+  '@aninest/extensions@1.8.2':
+    resolution: {integrity: sha512-3+EOXtpfk3lz1hhSfxfjQgwG/jJ4WjocufOpdUMsaKARw9Sf3MvaEk9iyvxxHvfrERpfj8EaLNLzKD7APaZFYQ==}
 
   '@apideck/better-ajv-errors@0.3.6':
     resolution: {integrity: sha512-P+ZygBLZtkp0qqOAJJVX4oX/sFo5JR3eBWwwuqHHhK0GIgQOKWrAfiAaWX0aArHkRWHMuggFEgAZNxVPwPZYaA==}
@@ -2529,7 +2523,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@aninest/extensions@1.8.0':
+  '@aninest/extensions@1.8.2':
     dependencies:
       aninest: 4.11.0
 
