@@ -10,11 +10,6 @@
 	} & (EventuallyReleasable | undefined);
 	const plugs: Plug[] = [
 		{
-			name: 'zephyrj.com',
-			href: 'https://zephyrj.com',
-			desc: 'High School Portfolio'
-		},
-		{
 			name: 'GitHub',
 			href: 'https://github.com/zphrs'
 		},
@@ -42,6 +37,21 @@
 			name: 'Aninest',
 			href: 'https://aninest.zephiris.dev',
 			desc: 'A nested animation library'
+		},
+		{
+			name: 'Porcupine',
+			href: 'https://zephiris.me/porcupine',
+			desc: 'A PWA Fidget Toy'
+		},
+		{
+			name: 'Calming',
+			href: 'https://zephiris.me/porcupine',
+			desc: 'Another PWA Fidget Toy'
+		},
+		{
+			name: 'zephyrj.com',
+			href: 'https://zephyrj.com',
+			desc: 'High School Portfolio'
 		},
 		{
 			href: 'https://at.zephiris.me',
