@@ -187,6 +187,8 @@
 		const onResize = () => {
 			canvas.width = window.innerWidth * devicePixelRatio;
 			canvas.height = window.innerHeight * devicePixelRatio;
+			canvas.style.width = window.innerWidth + 'px';
+			canvas.style.height = window.innerHeight + 'px';
 			lines.forEach((line) => {
 				line.draw(ctx);
 			});
@@ -194,8 +196,8 @@
 		canvas.style.position = 'relative';
 		canvas.style.top = '0';
 		canvas.style.left = '0';
-		// canvas.style.width = window.innerWidth + 'px';
-		// canvas.style.height = window.innerHeight + 'px';
+		canvas.style.width = window.innerWidth + 'px';
+		canvas.style.height = window.innerHeight + 'px';
 		canvas.style.overflow = 'hidden';
 		canvas.style.touchAction = 'none';
 		setTimeout(() => {
