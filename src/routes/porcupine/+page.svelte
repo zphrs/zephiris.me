@@ -218,7 +218,7 @@
 		setTimeout(() => {
 			onResize();
 			const canvasMag = mag(newVec2(canvas.width, canvas.height));
-			for (let i = 0; i < canvasMag * 2; i++) {
+			for (let i = 0; i < canvasMag; i++) {
 				const canvasCenter = newVec2(canvas.width / 2, canvas.height / 2);
 				lines.push(createLine(canvasCenter, canvasCenter));
 			}
