@@ -222,7 +222,9 @@
 			}
 		}, 0);
 		window.addEventListener('resize', onResize);
-		window.addEventListener('orientationchange', onResize);
+		window.addEventListener('orientationchange', () => {
+			setTimeout(() => onResize(), 10);
+		});
 		// also call when the device is rotated or the pixel ratio changes
 		window.addEventListener('orientationchange', onResize);
 		window.addEventListener('devicePixelRatio', onResize);
