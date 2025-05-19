@@ -194,8 +194,8 @@
 		canvas.style.position = 'relative';
 		canvas.style.top = '0';
 		canvas.style.left = '0';
-		canvas.style.width = window.innerWidth + 'px';
-		canvas.style.height = window.innerHeight + 'px';
+		// canvas.style.width = window.innerWidth + 'px';
+		// canvas.style.height = window.innerHeight + 'px';
 		canvas.style.overflow = 'hidden';
 		canvas.style.touchAction = 'none';
 		setTimeout(() => {
@@ -223,7 +223,7 @@
 		}, 0);
 		window.addEventListener('resize', onResize);
 		window.addEventListener('orientationchange', () => {
-			setTimeout(() => onResize(), 10);
+			setTimeout(() => onResize(), 500);
 		});
 		// also call when the device is rotated or the pixel ratio changes
 		window.addEventListener('orientationchange', onResize);
