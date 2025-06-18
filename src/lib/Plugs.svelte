@@ -45,7 +45,7 @@
 		},
 		{
 			name: 'Calming',
-			href: 'https://zephiris.me/porcupine',
+			href: 'https://zph.rs/calming',
 			desc: 'Another PWA Fidget Toy'
 		},
 		{

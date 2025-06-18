@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import {
 		type Vec2,
-		addRecursiveListener,
 		changeInterpFunction,
 		createAnimation,
 		getStateTree,
@@ -10,7 +8,6 @@
 		getSlerp,
 		modifyTo,
 		newVec2,
-		removeRecursiveListener,
 		updateAnimation,
 		getLocalState,
 		getLocalInterpingTo,
@@ -160,7 +157,7 @@
 			if (!withTimeout) return;
 			const sinceLastClick = (performance.now() - lastClicked) / 1000;
 			const cancel = setTimeout(
-				() => line.randomize(),
+				() => line.randomize(withTimeout),
 				increasinglySlower(1000 * Math.random() + 1000) * sinceLastClick + 1000 * Math.random()
 			);
 			return () => clearTimeout(cancel);
