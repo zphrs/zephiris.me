@@ -16,7 +16,7 @@
 				// }, 20000 /* 20s for testing purposes */)
 				console.log(`SW Registered: ${r}`);
 			},
-			onReunknownterError(error: unknown) {
+			onRegisterError(error: unknown) {
 				console.log('SW registration error', error);
 			}
 		});

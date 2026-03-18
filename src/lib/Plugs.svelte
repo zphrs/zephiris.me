@@ -40,7 +40,7 @@
 		},
 		{
 			name: 'Porcupine',
-			href: 'https://zephiris.me/porcupine',
+			href: '/porcupine',
 			desc: 'A PWA Fidget Toy'
 		},
 		{

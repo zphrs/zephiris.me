@@ -2,8 +2,8 @@
 	import Audio from '$lib/AudioPlayer.svelte';
 	import Plugs from '$lib/Plugs.svelte';
 	import Zephiris from '$lib/Zephiris.svelte';
-	import Nicknames from './Nicknames.svelte';
-	import Header from './Header.svelte';
+	import Nicknames from '../Nicknames.svelte';
+	import Header from '../Header.svelte';
 </script>
 
 <svelte:head>

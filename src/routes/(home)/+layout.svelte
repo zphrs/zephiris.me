@@ -1,5 +1,5 @@
 <script>
-	import Header from './Header.svelte';
+	import Header from '../Header.svelte';
 	import './styles/reset.css';
 	import './styles/global.css';
 	import './styles/genders.css';
@@ -28,27 +28,6 @@
 		color: var(--white);
 		padding: 0.5rem 0.25rem;
 		display: inline-block;
-	}
-	nav {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 1;
-		animation: scrollin 0.75s both;
-	}
-	main {
-		padding: var(--gap-1);
-		margin-top: calc(30vw + 3rem);
-		min-height: 100%;
-		max-width: 1000px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	main > :global(p) {
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
 	}
 	footer {
 		font-size: 14px;

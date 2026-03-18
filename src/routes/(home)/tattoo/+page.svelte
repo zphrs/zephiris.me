@@ -1,6 +1,6 @@
 <script>
 	import Zephiris from '$lib/Zephiris.svelte';
-	import Header from '../Header.svelte';
+	import Header from '../../Header.svelte';
 	import '../styles/reset.css';
 </script>
 

@@ -1,3 +1,7 @@
+/// <reference types="vite-plugin-pwa/client" />
+/// <reference types="vite-plugin-pwa/info" />
+/// <reference types="vite-plugin-pwa/svelte" />
+
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
@@ -7,20 +11,6 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
-}
-/// <reference types="vite-plugin-pwa/svelte" />
-
-declare module 'virtual:pwa-register/svelte' {
-	import type { Writable } from 'svelte/store';
-	import type { RegisterSWOptions } from 'vite-plugin-pwa/types';
-
-	export type { RegisterSWOptions };
-
-	export function useRegisterSW(options?: RegisterSWOptions): {
-		needRefresh: Writable<boolean>;
-		offlineReady: Writable<boolean>;
-		updateServiceWorker: (reloadPage?: boolean) => Promise<void>;
-	};
 }
 
 export {};
