@@ -1,15 +1,13 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import PlayPause from './PlayPause.svelte';
 
-	let playing = false;
-	let hasMeta = false;
-	let buffering = false;
-	export let src: string;
-	export let title: string;
-	export let inline: undefined | null | boolean = false;
+	let playing = $state(false);
+	let hasMeta = $state(false);
+	let buffering = $state(false);
 
-	$: audio && whenAudioLoaded();
 
 	function whenAudioLoaded() {
 		switch (audio.readyState) {
@@ -49,26 +47,47 @@
 	function onResume() {
 		buffering = false;
 	}
-	$: progress = audio && audio.duration && playing ? (currentTime / audio.duration) * 100 : 0;
-	$: progress && onResume();
-	let audio: HTMLAudioElement;
-	export let currentTime = 0;
-	$: audio && playAudio(playing, audio);
+	let audio: HTMLAudioElement = $state();
+	interface Props {
+		src: string;
+		title: string;
+		inline?: undefined | null | boolean;
+		currentTime?: number;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		src,
+		title,
+		inline = false,
+		currentTime = $bindable(0),
+		children
+	}: Props = $props();
+	run(() => {
+		audio && whenAudioLoaded();
+	});
+	let progress = $derived(audio && audio.duration && playing ? (currentTime / audio.duration) * 100 : 0);
+	run(() => {
+		progress && onResume();
+	});
+	run(() => {
+		audio && playAudio(playing, audio);
+	});
 </script>
 
-<span aria-hidden="true" class="hide"><slot /></span><button
+<span aria-hidden="true" class="hide">{@render children?.()}</span><button
 	style={`--progress: ${progress}%`}
-	class:empty={!$$slots.default}
+	class:empty={!children}
 	class:inline={inline !== undefined && inline !== false}
 	class:playing
 	class:buffering
 	class:hasMeta
 	disabled={buffering && playing && !hasMeta}
-	on:click={() => {
+	onclick={() => {
 		playing = !playing;
 		buffering = true;
 	}}
-	on:pointerover={loadMedia}
+	onpointerover={loadMedia}
 	class="card"
 >
 	<span class="icon">
@@ -78,20 +97,20 @@
 			bind:currentTime
 			preload="metadata"
 			{title}
-			on:ended={() => {
+			onended={() => {
 				playing = false;
 				currentTime = 0;
 			}}
-			on:loadedmetadata={() => {
+			onloadedmetadata={() => {
 				console.log('loaded metadata');
 				hasMeta = true;
 			}}
-			on:waiting={onStall}
-			on:canplay={onResume}
-			on:stalled={onStall}
+			onwaiting={onStall}
+			oncanplay={onResume}
+			onstalled={onStall}
 			{src}
-		/>
-	</span>{#if $$slots.default}<span class="slot"><slot /></span>{/if}
+		></audio>
+	</span>{#if children}<span class="slot">{@render children?.()}</span>{/if}
 </button>
 
 <style>

@@ -1,8 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
 
-	$: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : '';
+	let { children }: Props = $props();
+
+	let webManifestLink = $derived(pwaInfo ? pwaInfo.webManifest.linkTag : '');
 
 	onMount(async () => {
 		const { registerSW } = await import('virtual:pwa-register');
@@ -27,4 +32,4 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 	{@html webManifestLink}
 </svelte:head>
-<slot />
+{@render children?.()}

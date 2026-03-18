@@ -1,12 +1,17 @@
-<script>
+<script lang="ts">
 	import Header from '../Header.svelte';
 	import './styles/reset.css';
 	import './styles/global.css';
 	import './styles/genders.css';
 	import './styles/scrollbar.css';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
-<slot />
+{@render children?.()}
 
 <footer>
 	<p>

@@ -1,8 +1,14 @@
 <script lang="ts">
-	export let playing = false;
-	let left: SVGPathElement | null = null;
-	let right: SVGPathElement | null = null;
-	let play: SVGPathElement | null = null;
+	import { run } from 'svelte/legacy';
+
+	interface Props {
+		playing?: boolean;
+	}
+
+	let { playing = false }: Props = $props();
+	let left: SVGPathElement | null = $state(null);
+	let right: SVGPathElement | null = $state(null);
+	let play: SVGPathElement | null = $state(null);
 	let first = true;
 	let playTimeout = 0;
 	let animate = (el: SVGPathElement, from: string, to: string, reverse: boolean) => {
@@ -50,9 +56,9 @@
 			window.clearTimeout(playTimeout);
 		}
 	}
-	$: {
+	run(() => {
 		if (left && right && play) transition(left, right, play, playing);
-	}
+	});
 </script>
 
 <svg

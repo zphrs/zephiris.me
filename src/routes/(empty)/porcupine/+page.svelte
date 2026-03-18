@@ -237,7 +237,7 @@
 	});
 </script>
 
-<canvas id="porky-canvas" />
+<canvas id="porky-canvas"></canvas>
 
 <style>
 	canvas {
