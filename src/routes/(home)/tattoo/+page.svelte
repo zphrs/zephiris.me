@@ -3,7 +3,7 @@ https://svelte.dev/e/node_invalid_placement -->
 <script>
 	import Zephiris from '$lib/Zephiris.svelte';
 	import Header from '../../Header.svelte';
-	import '../styles/reset.css';
+	import '../../styles/reset.css';
 </script>
 
 <nav>
@@ -19,75 +19,57 @@ https://svelte.dev/e/node_invalid_placement -->
 		/>
 		<h2>Info Sheet</h2>
 		<table>
-			<tr>
-				<th>Name</th>
-				<td>my compass </td>
-			</tr>
-			<tr>
-				<th>Placement</th>
-				<td>Middle of my chest</td>
-			</tr>
-			<tr>
-				<th>Size</th>
-				<td>3in</td>
-			</tr>
-			<tr>
-				<th>In ASCII Art</th>
-				<td>
-					⠀⠀⠀ |<br />
-					⠀ ◜⠀| ⠀.<br />
-					( ﹙ ◑ <br />
-					⠀ ◟⠀|<br />
-					⠀⠀⠀ |<br />
-				</td>
-			</tr>
+			<tbody>
+				<tr>
+					<th>Name</th>
+					<td>my compass </td>
+				</tr>
+				<tr>
+					<th>Placement</th>
+					<td>Middle of my chest</td>
+				</tr>
+				<tr>
+					<th>Size</th>
+					<td>3in</td>
+				</tr>
+				<tr>
+					<th>In ASCII Art</th>
+					<td>
+						⠀⠀⠀ |<br />
+						⠀ ◜⠀| ⠀.<br />
+						( ﹙ ◑ <br />
+						⠀ ◟⠀|<br />
+						⠀⠀⠀ |<br />
+					</td>
+				</tr>
+			</tbody>
 		</table>
 		<h2>Symbolism</h2>
 		<table>
-			<tr>
-				<th>Ripples</th>
-				<td>probabilistic waves</td>
-			</tr>
-			<tr>
-				<th>Center Line</th>
-				<td>Slit of observation</td>
-			</tr>
-			<tr>
-				<th>Middle Dot</th>
-				<td>curiosity</td>
-			</tr>
-			<tr>
-				<th>Top Right Dot</th>
-				<td>unconditional love</td>
-			</tr>
+			<tbody>
+				<tr>
+					<th>Ripples</th>
+					<td>probabilistic waves</td>
+				</tr>
+				<tr>
+					<th>Middle Dot</th>
+					<td>curiosity</td>
+				</tr>
+				<tr>
+					<th>Top Right Dot</th>
+					<td>unconditional love</td>
+				</tr>
+			</tbody>
 		</table>
 
 		<h2>Explanation</h2>
 
 		<p>
-			Overall the tattoo represents wave particle duality which is a great metaphor for my gender: I
-			am both a probabilistic wave and a discrete particle. My gender is constantly collapsing into
-			a particle when I’m observed. When I’m not being observed it is a probabilistic wave of
-			possibilities.
-		</p>
-		<h3>Particles</h3>
-		<p>
-			The two particles — one in the middle and another up and left from the center — represent why
-			I continue to do anything, my reasons for existing:
-		</p>
-		<ul>
-			<li>
-				The middle dot stands for understanding how the universe and everything in it fundamentally
-				works
-			</li>
-			<li>
-				The other stands for mutual unconditional love — especially the love I have toward the first
-				person I felt unconditional love with.
-			</li>
-		</ul>
-		<p>
-			I look forward to adding many more dots over my lifetime whenever I find a new achievable goal
-			to strive toward.
+			I conceptualize the self as being equivalent to the total probability distribution of what
+			actions I might take in response to various sets of stimuli. While my actions sample this
+			distribution, any one action isn't who I am and furthermore this distribution continuously
+			evolves over time. At the same time, the distribution is shaped by some immutable aspects of
+			who I am.
 		</p>
 		<h3>Ripples</h3>
 		<p>
@@ -95,16 +77,29 @@ https://svelte.dev/e/node_invalid_placement -->
 			also represent how even though my presentation might not be consistent, there is a consistent
 			underlying essense and discernable pattern to how I present; i.e. who I am.
 		</p>
+		<h3>Particles</h3>
+		<p>
+			The two specific samplings — one in the middle and another up and right of the center — have a
+			farther meaning; they represent why I continue to do anything, my reasons for existing:
+		</p>
+		<ul>
+			<li>
+				The middle dot stands for wanting to understand how the universe and everything in it
+				fundamentally works
+			</li>
+			<li>The other stands for mutual unconditional love</li>
+		</ul>
+		<p>I look forward to adding more dots over my lifetime whenever I find a new aspiration.</p>
 		<h3>Center Line</h3>
 		<p>
 			The vertical line represents a split between the potential and the present known. It
-			represents collapsing the probabilities with sharp observation into rigid actualities. In this
-			case, the actualities are the particles, of which I have two presently.
+			represents collapsing the probabilities with sharp observation into rigid actualities.
 		</p>
 		<h3>Why a Compass?</h3>
 		<p>
-			Because it points me forward, it orients me. If I am ever wondering why I'm here I can glance
-			down and see at least two reasons why I am here; two reasons which inspire me to get to work.
+			Because it points me forward, it orients me. If I'm feeling adrift, I can glance down and get
+			at least two aspirations which answer definitively why I am here; two reasons which inspire me
+			to get to work.
 		</p>
 	</article>
 </main>
