@@ -10,6 +10,12 @@
 	} & (EventuallyReleasable | undefined);
 	const plugs: Plug[] = [
 		{
+			name: 'zephiris.dev',
+			href: 'https://zephiris.dev',
+			desc: 'Technical Blog',
+			estPublishDate: new Date(2025, 1, 30)
+		},
+		{
 			name: 'GitHub',
 			href: 'https://github.com/zphrs'
 		},
@@ -64,13 +70,6 @@
 			name: 'creative.zephiris.me',
 			href: 'https://creative.zephiris.me',
 			desc: 'Creative Blog',
-			disabled: true,
-			estPublishDate: new Date(2025, 1, 30)
-		},
-		{
-			name: 'zephiris.dev',
-			href: 'https://zephiris.dev',
-			desc: 'Technical Blog',
 			disabled: true,
 			estPublishDate: new Date(2025, 1, 30)
 		},
@@ -164,10 +163,16 @@
 		background: linear-gradient(135deg, var(--sea-100) 40%, var(--sea-900) 40%);
 		background-size: 200% 200%;
 		background-position: 0% 0%;
-		transition: background-position 0.5s, color 0.15s step-end, font-size 0.15s step-end,
-			border-color 0.5s, box-shadow 0.5s;
+		transition:
+			background-position 0.5s,
+			color 0.15s step-end,
+			font-size 0.15s step-end,
+			border-color 0.5s,
+			box-shadow 0.5s;
 		cursor: pointer;
-		box-shadow: 0 0 2px 0 var(--sea-700), 0 0 4px 0 var(--sea-700);
+		box-shadow:
+			0 0 2px 0 var(--sea-700),
+			0 0 4px 0 var(--sea-700);
 		background-blend-mode: difference;
 		text-decoration: none;
 		font-size: 1.5em;
@@ -222,11 +227,15 @@
 		background-position: 60% 60%;
 		color: var(--sea-100);
 		border-color: var(--sea-900);
-		box-shadow: 0 0 4px var(--sea-900), 0 0 8px var(--sea-900);
+		box-shadow:
+			0 0 4px var(--sea-900),
+			0 0 8px var(--sea-900);
 	}
 
 	a.card:active {
-		transition: font-size 0s, background-position 0.2s;
+		transition:
+			font-size 0s,
+			background-position 0.2s;
 		background-position: 100% 100%;
 	}
 </style>
