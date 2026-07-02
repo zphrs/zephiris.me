@@ -3,6 +3,9 @@ import { defineConfig } from 'vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 
 export default defineConfig({
+	server: {
+		allowedHosts: ['eduroam-169-233-187-78.ucsc.edu']
+	},
 	plugins: [
 		sveltekit(),
 		SvelteKitPWA({

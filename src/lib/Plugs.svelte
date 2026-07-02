@@ -60,18 +60,16 @@
 			desc: 'High School Portfolio'
 		},
 		{
+			name: 'creative.zephiris.me',
+			href: 'https://creative.zephiris.me',
+			desc: 'Interactive Art Projects'
+		},
+		{
 			href: 'https://at.zephiris.me',
 			name: 'at.zephiris.me',
 			desc: 'Contact Card',
 			disabled: true,
 			estPublishDate: new Date(2025, 1, 15)
-		},
-		{
-			name: 'creative.zephiris.me',
-			href: 'https://creative.zephiris.me',
-			desc: 'Creative Blog',
-			disabled: true,
-			estPublishDate: new Date(2025, 1, 30)
 		},
 		{
 			name: 'Plex UI',
